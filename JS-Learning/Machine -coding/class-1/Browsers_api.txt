@@ -1,0 +1,126 @@
+1) DOM APIs (most used)
+Used to read, create, update HTML elements.
+
+Examples:-
+-> document
+-> getElementById
+-> querySelector / querySelectorAll
+-> createElement
+-> appendChild
+-> innerHTML, textContent,innerHTML
+-> classList
+e.g:-
+document.querySelector("#btn").addEventListener("click", () => {});
+
+2) BOM APIs (Browser Object Model)
+Used to interact with the browser window.
+Examples:-
+
+-> window
+-> location
+-> history
+-> navigator
+-> screen
+
+eg:-
+window.location.href
+history.back()
+navigator.userAgent
+
+3) Event APIs
+Used to handle user interactions.
+Examples:-
+-> addEventListener
+-> Mouse events: click, dblclick
+-> Keyboard events: keydown, keyup
+-> Scroll, resize, focus, blur
+e.g:-
+window.addEventListener("resize", () => {});
+
+4) Timer APIs 
+Handled by browser, not JS itself.
+Examples:-
+-> setTimeout
+-> setInterval
+-> clearTimeout
+-> clearInterval
+-> requestAnimationFrame
+
+setTimeout(() => console.log("Hi"), 1000);
+
+5) Networking APIs 
+-> Used for server communication
+
+Examples:-
+-> fetch (modern)
+-> XMLHttpRequest (old)
+-> WebSocket
+-> EventSource (SSE)
+
+fetch("/api/users").then(res => res.json());
+
+6) Storage APIs 
+Used to store data in browser
+# Key-Value Storage
+-> localStorage
+-> sessionStorage
+localStorage.setItem("token", "abc");
+# Database-like
+-> IndexedDB
+-> Cache API (Service Workers)
+
+7) Security & Permissions APIs 
+Used to request user permission
+Examples:-
+-> Permissions API
+-> Clipboard API
+-> Credential Management API
+
+navigator.clipboard.writeText("Hello");
+
+8) Media APIs 
+Used for camera, mic, audio, video.
+Examples:-
+-> MediaDevices
+-> getUserMedia
+-> Audio API
+-> Video API
+
+navigator.mediaDevices.getUserMedia({ video: true });
+
+9) Device & Hardware APIs 
+Used to access device features.
+Examples:-
+-> Geolocation API
+-> Battery Status API
+-> Vibration API
+-> Orientation API
+navigator.geolocation.getCurrentPosition(console.log);
+
+10) Performance APIs 
+Used to measure performance
+Examples:-
+-> Performance API
+-> Navigation Timing
+-> Resource Timing
+-> PerformanceObserver
+-> performance.now();
+
+11) Background & Offline APIs 
+Used for offline & background work.
+Examples:-
+-> Service Workers
+-> Background Sync
+-> Push API
+-> Notification API
+
+12) File & System APIs 
+Used to handle files
+Examples:-
+-> File API
+-> Blob
+-> FileReader
+-> Drag & Drop API
+
+const file = input.files[0];
+

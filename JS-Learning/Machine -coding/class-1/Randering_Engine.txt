@@ -1,0 +1,49 @@
+# Rendering Engine (Browser Engine)
+A Rendering Engine is responsible for:
+-> Displaying content on the screen
+ Examples:-
+-> Blink → Chrome, Edge
+-> WebKit → Safari
+-> Gecko → Firefox
+# What Rendering Engine does
+-> Parses HTML
+-> Parses CSS
+-> Builds DOM Tree
+-> Builds CSSOM
+-> Creates Render Tree
+-> Layout (position & size)
+-> Paint pixels on screen
+
+<h1>Hello</h1>
+Rendering engine:
+Converts HTML → pixels on screen
+
+
+# Rendering Engine does NOT do
+
+-> Does not execute JS
+-> Does not manage call stack
+-> Does not handle promises
+
+Example:-
+
+<button id="btn">Click</button>
+<script>
+  document.getElementById("btn").style.color = "red";
+</script>
+
+Flow:
+1) Rendering engine
+-> Parses HTML
+-> Creates DOM
+
+2) JS engine
+-> Executes JS
+-> Calls document.getElementById()
+
+3) Rendering engine
+-> Updates DOM
+-> Re-layout
+-> Re-paint screen
+
+-> They coordinate, but have different responsibilities.

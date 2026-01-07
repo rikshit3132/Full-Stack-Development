@@ -1,0 +1,128 @@
+# what is browser ?
+1) A browser (web browser) is a software application
+that lets you access, 
+view, and interact with websites on the internet.
+
+2) A browser is the app that 
+opens websites and shows web pages.
+
+# what browser do ?
+-> Takes a website address (URL) like https://google.com
+-> Sends a request to a web server
+-> Receives HTML, CSS, and JavaScript
+-> Renders (draws) the page on your screen
+-> Runs JavaScript code and handles user
+ actions (clicks, input, etc.)
+
+ # what browser provides us as a developer ?
+ 1) JavaScript Engine
+Executes your JavaScript code.
+Examples:
+V8 → Chrome, Edge
+SpiderMonkey → Firefox
+JavaScriptCore → Safari
+console.log("JS runs because of browser engine");
+Note:- Without a browser, JS won’t run on the web.
+
+2) Web Api's
+-> These are not part of JavaScript, 
+they are provided by the browser.
+Common Web APIs:
+
+-> DOM API → document.getElementById
+-> Timers → setTimeout, setInterval
+-> Fetch API → fetch()
+-> Storage → localStorage, sessionStorage
+-> Geolocation
+-> Clipboard
+-> History API
+-> Canvas API
+
+setTimeout(() => {
+  console.log("Provided by browser");
+}, 1000);
+
+3) DOM (Document Object Model)
+
+-> Browser converts HTML into a 
+tree structure you can manipulate.
+-> document.querySelector("h1").style.color = "red";
+
+4) CSS Rendering Engine
+
+-> Browser:
+-> Parses CSS
+-> Calculates layout
+-> Paints pixels on the screen
+-> Without this, UI won’t appear.
+-> Google Chrome uses the Blink rendering engine
+
+5) Event System
+Handles user interaction:
+
+-> Click
+-> Scroll
+-> Keypress
+-> Mouse move
+-> Touch
+
+button.addEventListener("click", () => {
+  alert("Clicked!");
+});
+
+6) Networking Capabilities
+Browser handles:
+-> HTTP/HTTPS requests
+-> CORS
+-> Cookies
+-> Headers
+
+fetch("/api/users")
+  .then(res => res.json());
+
+7) Storage & Persistence
+
+-> Browser provides client-side storage:
+
+# Storage	                       # Use
+
+-> localStorage	                    Permanent
+-> sessionStorage	                Tab-based
+-> cookies	                        Small data
+-> IndexedDB	                  Large structured data
+
+8) Security Sandbox 
+Browser protects users by:
+-> Blocking direct file system access
+-> Enforcing Same-Origin Policy
+-> Preventing malicious scripts
+Note:- This is why JS cannot access your
+     PC files directly.
+
+9) Developer Tools (DevTools) 
+
+Extremely powerful tools:
+-> Console
+-> Network tab
+-> Performance profiling
+-> Memory leak detection
+-> React DevTools
+
+-> A browser provides a JavaScript runtime, 
+Web APIs, DOM, rendering engine, networking, 
+storage, security sandbox, and 
+developer tools to build and run web applications.
+
+Cycle of Async processes
+
+Call Stack
+↓
+Web APIs (Browser)
+↓
+Callback Queue / Microtask Queue
+↓
+Event Loop
+↓
+Call Stack
+
+

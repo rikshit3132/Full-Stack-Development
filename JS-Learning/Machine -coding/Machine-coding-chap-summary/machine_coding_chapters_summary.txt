@@ -1,0 +1,14 @@
+chapter - 1 (DOM-1)
+what is browser?
+JS engine and randering engine
+API's
+what to have in browsers?
+like storage,api's,Debugger
+what is DOM?
+DOM API
+DOM methods
+nodelist vs html collections
+reading attributes
+Event Listeners
+
+

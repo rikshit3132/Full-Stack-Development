@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>get-set attributes</title>
+</head>
+<body>
+    <div clss = "div1">
+        <h1 class="heading1">This is get and set attributes</h1>
+        <p class="para1">Lorem ipsum dolor sit amet.</p>
+    </div>
+    <script>
+        //set the attribute id in heading1 class
+        // using setAttribute() method
+        const heading1 = document.querySelector(".heading1");
+        heading1.setAttribute("id","head1");
+        // get the attribute using getAttribute() method
+        console.log(heading1.getAttribute("id"));
+        // custom attributes added by me
+        heading1.setAttribute("marks","high");
+
+        // adding attributes to elements
+        heading1.style.backgroundColor = "lightGreen";
+          heading1.style.color = "blue";
+    </script>
+</body>
+</html>

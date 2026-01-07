@@ -1,0 +1,116 @@
+DOM (Document Object Model) is a programming 
+interface provided by the browser that 
+represents an HTML/XML document as a tree of nodes, 
+allowing JavaScript to read, manipulate, and 
+update the page dynamically.
+
+ JavaScript does not manipulate HTML directly — 
+it manipulates the DOM
+
+
+How DOM is created (Behind the scenes) ?
+-> Browser downloads HTML
+-> HTML is parsed
+-> Browser builds DOM Tree
+-> CSS is parsed → CSSOM
+-> DOM + CSSOM → Render Tree
+-> Render Tree → Layout → Paint
+JS can pause DOM creation if it blocks parsing.
+
+
+querySelector() vs getElementBy*() ?
+Feature     	    querySelector()	            getElementById() / getElementsBy*()
+Selector type	    CSS selector	            Specific (id / class / tag)
+Return value	    First matching Element	    Element / HTMLCollection
+Flexibility	            ⭐⭐⭐⭐⭐	            ⭐⭐
+Performance	          Slightly slower	        Slightly faster
+Modern usage	        ✅ Preferred	            Legacy but valid
+
+Performance (Interview Point) ?
+Which is faster?
+✔ getElementById() is fastest
+Why?
+-> Browser uses direct ID lookup (hash map)
+-> No selector parsing
+-> Why querySelector() is slower?
+-> Browser must:
+-> Parse CSS selector
+-> Traverse DOM
+-> Match rules:-
+BUT difference is negligible in real apps.
+
+Live vs Static (TRAP QUESTION)
+const items = document.getElementsByClassName("item");
+const nodes = document.querySelectorAll(".item");
+
+Feature	    HTMLCollection	        NodeList
+Live	        ✅	                ❌
+Auto update	    ✅	                ❌
+
+Note:- Live collections cause unexpected bugs
+
+getElementById is slightly faster because 
+it uses direct ID lookup, while querySelector
+parses CSS selectors and traverses the DOM.
+However, the performance difference is negligible
+in most applications. We prefer querySelector 
+because it supports all CSS selectors, 
+reduces multiple APIs into one, 
+and produces cleaner, more maintainable code.
+
+
+Static vs Live DOM Collections (Very Important)
+-> What does LIVE mean?
+-> It automatically updates itself when the DOM changes.
+-> You don’t need to re-query the DOM.
+ Example: LIVE (getElementsByClassName)
+<div class="item"></div>
+<div class="item"></div>
+const items = document.getElementsByClassName("item");
+console.log(items.length); // 2
+document.body.appendChild(document.createElement("div")).className = "item";
+console.log(items.length); // 3 
+ -> Collection updated automatically
+
+
+ -> What does STATIC mean?
+
+-> It is a snapshot at the time of selection
+-> It does NOT update when DOM changes.
+ -> Example: STATIC (querySelectorAll)
+const items = document.querySelectorAll(".item");
+console.log(items.length); // 2
+
+document.body.appendChild(document.createElement("div")).className = "item";
+
+console.log(items.length); // still 2 
+->  No auto update
+
+# Why LIVE collections are dangerous (Interview Gold)
+const items = document.getElementsByClassName("item");
+for (let i = 0; i < items.length; i++) {
+  items[i].remove();
+}
+ -> Infinite / unexpected behavior
+-> Because items.length keeps changing!
+
+-> Why STATIC is safer 
+const items = document.querySelectorAll(".item");
+items.forEach(item => item.remove());
+
+✔ Stable
+✔ Predictable
+✔ No surprises
+
+# Performance Angle (Important)
+-> LIVE → browser tracks DOM continuously 
+-> STATIC → no tracking → better performance 
+
+-> Live collections update automatically 
+when the DOM changes, while static collections
+are snapshots 
+and remain unchanged unless re-queried.
+
+# Easy way to remember 
+LIVE → “Always watching DOM”
+STATIC → “Photo taken once”

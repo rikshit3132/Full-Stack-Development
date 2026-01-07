@@ -1,0 +1,23 @@
+// Chapter - 1 ( Web Fundamentals & Intro to HTML)
+
+1. FrontEnd Developer
+2. Heavy FrontEnd Developer
+3. Full Stack Developer
+4. backend Developer
+5. Low level design
+6. when enter url in browser and hit enter 
+        what happened in the backend ?
+7.client server architecture simpler in perpective of 
+            browser request?
+8. DNS (domain name server)
+9. IP address
+10. flow of requests 
+11. cache in request(like website open fast which 
+            we open everyday)
+12. DOM and CSSOM and randering tree
+13. Critical randering path
+14. HTML vs CSS vs JS
+15. Emet abbrivation
+16. heading tags,paragraphs,div,span,img,anchor
+17. semantic tags
+18. open graph protocol

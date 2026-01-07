@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM-1</title>
+</head>
+<body>
+    <h1>I am h1</h1>
+    <p>I am paragraph</p>
+    <h1>I am h1-1</h1>
+    <p>I am paragraph-1</p>
+
+    <h1 class="thirdH1p">I am h1-1</h1>
+    <p class="thirdH1p">I am paragraph-1</p>
+
+    <h1 id="fourthH1">I am h1-1</h1>
+    <p id="fourthp">I am paragraph-1</p>
+</body>
+<script>
+    //reading elements in dom
+    // 1) document.querySelector(elemenent);
+    // using element name
+    // read the paragraph in body
+    // taking the first p from the top
+    // const p = document.querySelector("p");
+    // console.log(p.innerText);
+    // read h1
+    //taking the first h element from the top
+    // const h1 = document.querySelector("h1");
+    // console.log(h1.innerText);
+    //In order to check its a node type we have to
+    // do this -> h1.nodeName,h1.nodeType
+    // we can also check from h1 instanceOf Node -> true.
+
+    // 2)document.querySelectorAll(element);
+    // It is going to return all the related elements.
+    // reading all h's.
+    // const hAll = document.querySelectorAll("h1");
+    // console.log(hAll);
+    // returns the nodelist of size 4.
+    // NodeList(4) [h1, h1, h1.thirdH1p, h1#fourthH1p]
+    // to check it will return nodelist[size]
+    // hAll instanceOf nodeList -> true
+
+    // QuerySelector() using id
+    //returns the node
+    // const forthHi =  document.querySelector("#fourthH1p");
+    // console.log(forthHi);
+// QuerySelectorAll() using id
+//returns the node
+    // const forthHip =  document.querySelectorAll("#fourthH1p");
+    // console.log(forthHip);
+
+// QuerySelectorAll() using className
+//returns the node or the node list
+// const forthHip =  document.querySelectorAll(".fourthH1p");
+// console.log(forthHip);
+
+    // 3) Read element by getElementById(element)
+    // returns the html element or html colllections.
+    // const p = document.getElementById("fourthp");
+    // console.log(p);
+
+    //  4) Read element by getElementByClassName(element)
+    // returns the html element or html colllections.
+    // const h1p = document.getElementsByClassName("thirdH1p");
+    // console.log(h1p);
+
+    // 5) document.getElementsByTagName(tagName)
+    // returns the html element or html colllections.
+    // const h1 = document.getElementsByTagName("h1");
+    // console.log(h1);
+    // HTMLCollection(4) [h1, h1, h1.thirdH1p, 
+    // h1#fourthH1, fourthH1: h1#fourthH1]
+
+    // 5) document.getElementsById(id)
+    // returns the html element only because id-> unique.
+    // const h1 = document.getElementsById("");
+    // console.log(h1);
+    // HTMLCollection(4) [h1, h1, h1.thirdH1p, 
+
+// Note:-
+// The querySelector() and  querySelectorAll() returns
+// the node or nodelist kind of thing.
+
+// The id,class,tagName returns the html element or
+//  the html collections.
+</script>
+</html>

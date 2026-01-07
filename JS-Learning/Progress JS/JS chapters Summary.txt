@@ -1,0 +1,103 @@
+### JS chapter 1 topics
+1)	What is JS?
+2)	Primitive and non-Primitives?
+3)	Var, let and const.
+4)	Hositing in var,let and const. 
+5)	Shadowing in JS.
+6)	Global Execution Context.
+7)	Temporal Dead Zone
+8)	Block scope,local scope and global scope
+9)	Hoisting in functions
+10)	Functions and its types.
+
+### JS chapter 2 topics
+1)	Native objects and host objects
+2)	This keyword
+3)	Behavior of this
+4)	Chaining
+5)	Strict and non-strict mode in js
+6)	Inheritance
+7)	Call bind apply
+
+
+### JS chapter 3 topics
+1)	Deep copy and shallow copy
+2)	Spread operator
+3)	Default parameter value in a function
+4)	Pass by value vs pass by reference
+5)	Rest operator
+6)	JSON.stringify(arr) method…Why don’t you use deep clone??
+7)	Own deep clone function in JS
+8)	Polyfills in JS
+9)	Polyfills of call, apply, and bind
+10)	Prototype inheritance
+11)	Deep copy using lodash
+
+
+### JS chapter 4 topics
+
+1)	Optimisation of polyfills of call,bind,apply
+2)	shallow copy object.assign()
+3)	Polyfills of deep copy
+4)	flatten Array in js
+5)	flatten obj in js
+6)	Arrays all methods with examples
+7)	Higher order functions
+
+
+### JS chapter 5 topics
+
+1.	Classes and Objects
+2.	Constrctor function
+3.	Object.create() fun
+4.	More discussion on constructor function
+5.	Static variables and keyword in js
+6.	Constructor
+7.	Inheritance and prototype creation of functions
+8.	Super to call parent class constructor
+9.	Creation of objrct using new keyword
+10.	Call() fun tp call the super function constructor
+11.	Assigning object value to other object.
+12.	New keyword to create object
+13.	When to use class and when to use constructor functions
+
+
+### JS chapter 6 topics
+1) Intro to closures
+2) lexical scope
+3) working of closures
+4) Examples of closures
+5) Applications of closures
+6) functions currying
+7) closures with var
+8) closures with let
+9) infinite fn currying
+10) memoisation
+
+### JS chapter 7 topics
+1)  Types of creating Objects
+2)  Object Literals
+3) Object constructor
+4) constructor function Obj
+5)  ES-6 classes object creation
+6)  object.create()
+7)  using factory function
+8) static functions of objects
+9) property Descriptor
+10) define property
+11) writable,enumrable,configurable
+12) Map and sets in js
+13) weakMap and weaksets
+
+### JS chapter 8 topics
+1)Synchronus vs Asynchronus
+2) single and multi threaded
+3) Examples of Synchronus & Asynchronus
+4) callback
+5) event loop
+6) How async code got executed in js?
+7) Web api,callback queue,Event loop
+8) Reading file in js
+9) file system in sync and asyc
+10) IIFE 
+11) Modules
