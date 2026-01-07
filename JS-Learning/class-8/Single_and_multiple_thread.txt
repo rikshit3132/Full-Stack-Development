@@ -1,0 +1,38 @@
+Single-Threaded 
+
+-> Only ONE call stack
+-> One task at a time
+Task A → Task B → Task C
+
+Multi-Threaded
+
+-> Multiple call stacks
+-> Tasks run in parallel
+Thread 1: Task A
+Thread 2: Task B
+Thread 3: Task C
+
+So Why NOT Make JS Multi-Threaded?
+-> This is the KEY QUESTION
+-> Because JavaScript was designed to work 
+with the DOM safely and simply.
+
+DOM is NOT Thread-Safe (MAIN REASON)
+-> What is DOM?
+-> Shared memory structure
+-> Represents webpage UI
+-> Imagine Multi-Threaded JS 
+-> Thread 1 → Change button text
+-> Thread 2 → Remove button
+-> Race conditions
+-> Data corruption
+-> Browser crashes
+
+Example Problem
+// Thread 1
+button.textContent = "Click";
+// Thread 2
+button.remove();
+Which runs first?
+What if both run at same time?
+Problem

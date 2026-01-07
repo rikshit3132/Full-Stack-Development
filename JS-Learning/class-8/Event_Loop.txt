@@ -1,0 +1,11 @@
+Event Loop
+
+Event Loop constantly checks whether 
+the call stack is empty and 
+moves queued async callbacks into it.
+
+while(true) {
+  if (callStack empty) {
+    move callback to stack
+  }
+}
