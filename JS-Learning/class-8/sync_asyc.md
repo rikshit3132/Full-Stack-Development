@@ -1,3 +1,4 @@
+
 Synchronous Function
 <!-- Functions provided by the JS lang. or node -->
 Call Stack
@@ -34,3 +35,4 @@ callback queue/macrotask queue
 from where if stack is empty than event loop
 take it from queue and put it into callstack
 for execution.At a time one async. code executes. -->
+
