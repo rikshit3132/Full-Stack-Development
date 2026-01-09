@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add background</title>
+    <style>
+        .one{
+            background-color: red;
+        }
+        .two{
+            background-color: green;
+        }
+        .three{
+            background-color: none;
+        }
+    </style>
+</head>
+<body>
+    <div class = "container">
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius, voluptate.</p>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente, non.</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum, ducimus.</p>
+    </div> 
+</body>
+<script>
+const container = document.querySelectorAll(".container");
+let count = 0;
+container.forEach((element) =>{
+element.addEventListener("click",(e) =>{
+    count++;
+    if(count == 1){
+        e.currentTarget.style.backgroundColor = "red";
+    }else if(count == 2){
+        e.currentTarget.style.backgroundColor = "green";
+    }else if(count == 3){
+        e.currentTarget.style.backgroundColor = "";
+        count = 0;
+    }
+})
+})
+
+</script>
+</html>

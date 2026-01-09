@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p class="p1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur, ut!</p>
+    <p class="p2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque, voluptas?</p>
+    <p class="p3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, voluptates!</p>
+</body>
+<script>
+    let count = 0;
+    const p1 = document.querySelector(".p1"); 
+    const p2 = document.querySelector(".p2");
+    const p3 = document.querySelector(".p3");  
+
+    p1.addEventListener("click",(e)=>{
+        count++;
+        if(count == 1){
+            p1.style.backgroundColor = "red";
+            p2.style.backgroundColor = "red";
+            p3.style.backgroundColor = "red";
+        }else if(count == 2){
+            p1.style.backgroundColor = "green";
+            p2.style.backgroundColor = "green";
+            p3.style.backgroundColor = "green";
+        }else if(count == 3){
+            p1.style.backgroundColor = "";
+            p2.style.backgroundColor = "";
+            p3.style.backgroundColor = "";
+            count = 0;
+        }
+    })
+p2.addEventListener("click",(e)=>{
+        count++;
+        if(count == 1){
+            p1.style.backgroundColor = "red";
+            p2.style.backgroundColor = "red";
+            p3.style.backgroundColor = "red";
+        }else if(count == 2){
+            p1.style.backgroundColor = "green";
+            p2.style.backgroundColor = "green";
+            p3.style.backgroundColor = "green";
+        }else if(count == 3){
+            p1.style.backgroundColor = "";
+            p2.style.backgroundColor = "";
+            p3.style.backgroundColor = "";
+            count = 0;
+        }
+    })
+    p3.addEventListener("click",(e)=>{
+        count++;
+        if(count == 1){
+            p1.style.backgroundColor = "red";
+            p2.style.backgroundColor = "red";
+            p3.style.backgroundColor = "red";
+        }else if(count == 2){
+            p1.style.backgroundColor = "green";
+            p2.style.backgroundColor = "green";
+            p3.style.backgroundColor = "green";
+        }else if(count == 3){
+            p1.style.backgroundColor = "";
+            p2.style.backgroundColor = "";
+            p3.style.backgroundColor = "";
+            count = 0;
+        }
+    })
+</script>
+</html>
