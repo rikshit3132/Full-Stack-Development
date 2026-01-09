@@ -12,3 +12,14 @@ reading attributes
 Event Listeners
 
 
+chapter - 2 (DOM - 2)
+1) Fragments in dom
+2) event Listeners
+3) how to intialize event Listener fun
+4) mouse and keyboards events
+5) Questions on event Listeners
+6) Event bubbling
+7)Stop propagation() & stop Immidiate propagation
+8) event capturing
+9) questions on bubbling
+10) practice questions
