@@ -90,10 +90,10 @@
 13) weakMap and weaksets
 
 ### JS chapter 8 topics
-1)Synchronus vs Asynchronus
+1) Synchronus vs Asynchronus
 2) single and multi threaded
 3) Examples of Synchronus & Asynchronus
-4) callback
+4) callback queue
 5) event loop
 6) How async code got executed in js?
 7) Web api,callback queue,Event loop
@@ -101,3 +101,14 @@
 9) file system in sync and asyc
 10) IIFE 
 11) Modules
+
+### JS chapter 9 topics
+1) Order of async tasks not same as output
+2) pyramid doom/callback hell
+3) inversion of control
+4) promises
+5) promise in js?
+6) consume data in promise?
+7) promise Chaining?
+8) than,catch,finally
+9) why promise better than callback
