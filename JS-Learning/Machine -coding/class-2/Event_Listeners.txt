@@ -1,0 +1,153 @@
+###what is Event?
+-> An event is something that happens in the browser.
+Examples:
+-> User clicks a button
+-> User types a key
+-> Page finishes loading
+-> Mouse moves
+-> Form is submitted
+
+### What is an Event Listener?
+An event listener is a function that waits 
+for an event to happen and then executes code.
+-> "If this event happens → run this function".
+-> Event listeners are functions attached to DOM 
+elements using addEventListener() that listen for 
+user or browser events and execute code, supporting 
+bubbling,capturing, delegation, and removal.
+
+### 3 types of defining events listeners
+
+ 1) inline html event Handlers
+<button onclick="sayHello()">Click</button>
+
+<script>
+function sayHello() {
+  alert("Hello");
+}
+</script>
+
+Problems:-
+-> Mixes HTML + JS
+-> Hard to maintain
+-> Only ONE handler allowed
+-> Not used in modern apps
+
+2) DOM Property Handler
+const btn = document.querySelector("button");
+
+btn.onclick = function () {
+  console.log("Clicked");
+};
+
+Problems:-
+-> Only one event handler
+-> New one overrides old one
+Example:-
+btn.onclick = () => console.log("First");
+btn.onclick = () => console.log("Second"); // overrides
+
+3)addEventListener()(BEST & MODERN)
+btn.addEventListener("click", function () {
+  console.log("Clicked");
+});
+
+Advantages:-
+-> Multiple listeners allowed
+-> Supports bubbling & capturing
+-> Can remove listeners
+-> Clean & professional
+
+#### addEventListener() Syntax (IMPORTANT)
+-> element.addEventListener(eventType, handler, options);
+-> eventType → "click", "keydown", etc.
+-> handler → function to execute
+-> options → capture, once, passive (optional)
+
+### Event Object (event or e)
+-> Every event handler automatically receives an event object.
+btn.addEventListener("click", function (event) {
+  console.log(event);
+});
+
+### Common Properties:
+-> event.target      // element that triggered event
+-> event.currentTarget // element listener attached to
+-> event.type        // click, keydown, etc.
+-> event.preventDefault()
+-> event.stopPropagation()
+
+### Types of Event Listeners (Events)
+1) Mouse Events
+-> click, dblclick
+-> mousedown, mouseup
+-> mousemove
+-> mouseenter / mouseleave (no bubbling)
+-> mouseover / mouseout (bubbles)
+
+2) Keyboard Events
+-> keydown
+-> keyup
+-> keypress (deprecated-> not used -> older)
+
+3) Form Events
+-> submit
+-> input (real-time)
+-> change (after blur)
+-> focus
+-> blur
+
+4) Window / Document Events
+-> DOMContentLoaded
+-> load
+-> scroll
+-> resize
+-> beforeunload
+
+###  e.stopImmediatePropagation();
+
+-> stopImmediatePropagation() is a DOM Event method used
+to completely stop an event at the current element
+itself.It is stronger than stopPropagation().
+
+It does THREE things at once:
+-> Stops the event from moving to parent elements 
+(no bubbling / capturing).
+-> Stops other event listeners on the SAME element.
+-> Prevents further execution of listeners added after it.
+
+### Bubbling Effect
+target ->>>> top
+
+### Capturing Effect
+top ->>>> target
+
+#### e.stopPropagation()
+-> Stops bubbling or capturing.
+
+#### Removing Event Listeners (IMPORTANT)
+-> This DOES NOT work
+btn.removeEventListener("click", function () {});
+
+-> Correct Way
+function handleClick() {
+  console.log("Clicked");
+}
+
+btn.addEventListener("click", handleClick);
+btn.removeEventListener("click", handleClick);
+Note:-
+-> Same function reference is mandatory
+
+#### Event Options (Advanced)
+btn.addEventListener("click", handler, {
+  once: true,
+  capture: false,
+  passive: true
+});
+
+-> Options Explained:
+once → runs only once
+capture → capturing phase
+passive → better scroll performance
+

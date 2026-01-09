@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Immidiate Propagation</title>
+    <style>
+        .outer{
+            background-color: azure;
+            height: 18rem;
+            width: 15rem;
+            border: 2px solid salmon;
+        }
+        .inner{
+            background-color: cadetblue;
+            height: 10rem;
+            width: 7rem;
+            border: 2px solid black;
+            margin-top: 4rem;
+            margin-left: 4rem;
+        }
+        .btn{
+            height: 5rem;
+            width: 5rem;
+             background-color: white;
+             border: 1px solid greenyellow;
+             margin-top: 2rem;
+            margin-left: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Immidiate Propagation</h1>
+    <div class="outer">
+        <div class="inner">
+            <button class="btn">click Me</button>
+        </div>
+    </div>
+</body>
+<script>
+    // stopImmediatePropagation() > stopPropagation()
+    // It prevents bubbling/capturing.
+    // It prevents all the listeners attached after it.
+    // 
+    // const outer1 = document.querySelector(".outer");
+    //  const outer2 = document.querySelector(".outer");
+
+    //  outer1.addEventListener("click",(e)=>{
+    //     console.log("outer1 clicked outer");
+    //     e.stopImmediatePropagation();
+    //  });
+
+    //  outer2.addEventListener("click",()=>{
+    //     console.log("outer2 clicked outer");
+    //  });
+
+    //  bubbling using stopImmediatePropagation()
+    // const outer = document.querySelector(".outer");
+    // const inner = document.querySelector(".inner");
+    // bubbling effect using inner 
+    // attach click to both the elements
+    // when i click only inner,the outer also trigggered,
+    // Hence showing bubbling effect.
+    // e.target -> clicked element
+    // e.currTarget -> where event is added.
+    // outer.addEventListener("click",(e)=>{
+    //     console.log("Outer is clicked",e);
+    // });
+    // inner.addEventListener("click",(e)=>{
+    //     console.log("Inner is clicked",e);
+    // });
+
+    // Bubbling Effect
+    // This is by default behaviour in DOM.
+    // starts from child ------->>> parent
+    //  const outer = document.querySelector(".outer");
+    // const inner = document.querySelector(".inner");
+    // const btn = document.querySelector(".btn");
+    // btn.addEventListener("click",function(e){
+    //     console.log("Button",e);
+    // });
+    // outer.addEventListener("click",(e)=>{
+    //     console.log("Outer",e);
+    // });
+    // inner.addEventListener("click",(e)=>{
+    //     console.log("Inner",e);
+    // });
+    // btn.addEventListener("click",(e)=>{
+    //     console.log("Button",e);
+    // });
+// button -->> inner -->> outer
+
+    // Capturing effect
+    // Opposite of bubbling.
+    // starts from very parent --- >> child
+
+    // const outer = document.querySelector(".outer");
+    // const inner = document.querySelector(".inner");
+    // const btn = document.querySelector(".btn");
+
+    // btn.addEventListener("click",(e)=>{
+    //     console.log("button",e);
+    // },true);
+    // outer.addEventListener("click",(e)=>{
+    //     console.log("outer",e);
+    // },true);
+    // inner.addEventListener("click",(e)=>{
+    //     console.log("Inner",e);
+    // },true);
+// outer -->> inner -->> button
+
+// e.stopPropagation()
+// Stops bubbling or capturing.
+// const outer = document.querySelector(".outer");
+// const inner = document.querySelector(".inner");
+// const btn = document.querySelector(".btn");
+
+// outer.addEventListener("click",(e)=>{
+// console.log("Outer ",e);
+// });
+// inner.addEventListener("click",(e)=>{
+// console.log("Inner-1",e);
+// e.stopPropagation();//it prevents the trigger of all
+// parents of inner-1
+// it does'nt prevent the same kind of event from trigger.
+// });
+// inner.addEventListener("click",(e)=>{
+// console.log("Inner-2",e);
+// });
+// btn.addEventListener("click",(e)=>{
+//     console.log("button",e);
+// });
+// button -->> inner-1 -->> inner-2
+
+// e.stopPropagation() in capturing
+// const outer = document.querySelector(".outer");
+// const inner = document.querySelector(".inner");
+// const btn = document.querySelector(".btn");
+
+//     btn.addEventListener("click",(e)=>{
+//         console.log("button",e);
+//     },true);
+//     outer.addEventListener("click",(e)=>{
+//         console.log("outer",e);
+//     },true);
+//     inner.addEventListener("click",(e)=>{
+//         console.log("Inner - 1",e);
+//          e.stopPropagation();
+//     },true);
+//     inner.addEventListener("click",(e)=>{
+//         console.log("Inner - 2",e);
+//     },true);
+
+    // outer -->> inner-1 -->> inner-2
+
+// e.stopImmediatePropagation() in capturing
+const outer = document.querySelector(".outer");
+const inner = document.querySelector(".inner");
+const btn = document.querySelector(".btn");
+
+    btn.addEventListener("click",(e)=>{
+        console.log("button",e);
+    },true);
+    outer.addEventListener("click",(e)=>{
+        console.log("outer",e);
+    },true);
+    inner.addEventListener("click",(e)=>{
+        console.log("Inner - 1",e);
+         e.stopImmediatePropagation();
+    },true);
+    inner.addEventListener("click",(e)=>{
+        console.log("Inner - 2",e);
+    },true);
+
+    // outer -->> inner - 1
+    // prevents same kind + parent elements.
+</script>
+</html>
+<!-- The stopImmediatePropagation() > stopPropagation() -->

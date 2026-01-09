@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>keyboard Events</title>
+
+</head>
+<body>
+    <h1>keyboard Events</h1>
+    <input type="text">
+</body>
+<script>
+    const input = document.querySelector("input");
+    // keydown event 
+    input.addEventListener("keydown",()=>{
+        console.log("key down event triggered");
+    },{once : "true"});
+
+    // keyup event
+    input.addEventListener("keyup",()=>{
+        console.log("key up event triggered");
+    },{once : "true"});
+
+    // keypress-> older one
+    input.addEventListener("keypress",()=>{
+        console.log("Key is pressed");
+    })
+</script>
+</html>

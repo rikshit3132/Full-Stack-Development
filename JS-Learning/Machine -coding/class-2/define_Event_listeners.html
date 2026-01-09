@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inline HTML Event Listeners</title>
+</head>
+<body>
+    <!-- <button onclick="sayHello(event)">click</button> -->
+    <!-- inline HTML event listener -->
+     <button>click me</button>
+</body>
+<script>
+    const btn = document.querySelector("button");
+    // DOM Property Handler-1
+    // btn.onclick = (e)=>{
+    //     console.log(e);
+    //     alert("Button is clicked")
+    // }
+    // problems with it
+    // btn.onclick = (e)=>{
+    //     console.log(e);
+    //     console.log("first");
+    // }
+    // btn.onclick = (e)=>{
+    //     console.log(e);
+    //     console.log("second");
+    // }
+    // second is printed to console and it overrides 
+    // the previous function i.e first.
+    // addEventListener()(BEST & MODERN)
+    btn.addEventListener("click",function(){
+        console.log("btn is clicked");
+    });
+</script>
+</html>

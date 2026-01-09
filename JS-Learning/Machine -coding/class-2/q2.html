@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question-2</title>
+    <style>
+        .parent{
+            height: 24rem;
+            width: 7rem;
+            border: 3px solid gray;
+            margin-left: 32rem;
+        }
+        .red{
+            height: 6rem;
+            width: 4rem;
+            margin: 1rem 0rem 0rem 1rem;
+            border: 3px solid gray;
+            text-align: center;
+        }
+        .yellow{
+            height: 6rem;
+            width: 4rem;
+            margin: 1rem 0rem 0rem 1rem;
+            border: 3px solid gray;
+            text-align: center;
+        }
+        .green{
+            height: 6rem;
+            width: 4rem;
+            margin: 1rem 0rem 0rem 1rem;
+            border: 3px solid gray;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Coloring boxes</h1>
+    <div class="parent">
+        <div class="red">red</div>
+        <div class="yellow">yellow</div>
+        <div class="green">green</div>
+    </div>
+</body>
+<script>
+    const container = document.querySelector(".parent");
+      container.addEventListener(
+        "click",
+        (e) => {
+          const color = e.target.textContent;
+          e.currentTarget.style.backgroundColor = color;
+        }
+      );
+</script>
+</html>

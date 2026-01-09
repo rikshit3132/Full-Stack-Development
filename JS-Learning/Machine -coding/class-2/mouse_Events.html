@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Events</title>
+    <style>
+        .box{
+            height: 10rem;
+            width: 10rem;
+            background-color: aquamarine;
+            border: 3px solid gray;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mouse Events</h1>
+    <!-- types of mouse events -->
+     <div class="box"></div>
+</body>
+<script>
+    const mydiv = document.querySelector(".box");
+    // click mouse event
+    mydiv.addEventListener('click',()=>{
+        console.log("div is clicked");
+    },{once : "true"});
+
+    // double click mouse event
+    mydiv.addEventListener("dblclick",()=>{
+        console.log("div is double clicked");
+    },{once : "true"});
+
+    // mouse down property
+    mydiv.addEventListener("mousedown",()=>{
+        console.log("mouse is down");
+    },{once : "true"});
+
+    // mouse up property
+
+    mydiv.addEventListener("mouseup",()=>{
+        console.log("Mouse is up");
+    });
+    
+    // mousemove
+    mydiv.addEventListener("mousemove",()=>{
+        console.log("mouse is moved");
+    },{once : "true"});
+
+    // mouseenter (no bubbling)
+    mydiv.addEventListener("mouseenter",() =>{
+        console.log("mouse is entered");
+    });
+
+    // mouseleave (no bubbling)
+    mydiv.addEventListener("mouseleave",()=>{
+        console.log("mouse is leaved");
+    });
+
+    // mouseover(bubbling)
+    mydiv.addEventListener("mouseover",()=>{
+        console.log("Mouse is over div");
+    });
+
+    //mouseout
+     mydiv.addEventListener("mouseout",()=>{
+        console.log("Mouse is out div");
+    })
+
+
+</script>
+</html>
