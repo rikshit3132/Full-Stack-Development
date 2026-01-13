@@ -110,5 +110,5 @@
 5) promise in js?
 6) consume data in promise?
 7) promise Chaining?
-8) than,catch,finally
+8) then,catch,finally
 9) why promise better than callback
