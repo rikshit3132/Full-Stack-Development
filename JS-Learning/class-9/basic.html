@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+</head>
+<body>
+    <h1>Promise in JS</h1>
+
+</body>
+<script>
+//     let data = getDataFromServer();
+//     console.log(data);
+// takes lots of time to fetch data from server.
+
+// basic way of creating promise
+// Example - 1
+// const promise = new Promise((resolve,reject) => {
+//     console.log("Iam inside promise!!!");
+// });
+//Immediately fulfilled.
+
+// Example - 2
+// settimeout
+// const promise =  new Promise((resolve,reject) =>{
+//     setTimeout(() => {
+//         console.log("Iam learning promise for first time");
+//     },2000);
+// });
+// Promise created → pending
+// After 2 seconds → fulfilled
+
+// how to get value ?
+// console.log(promise);//promise is obj not value
+// You do NOT get value directly.
+
+// How to resolve?
+// once promise is fullfilled
+// run this function
+// promise.then((data)=>{
+//     console.log(data);
+// })
+
+// Example - 3
+// const myPromise = new Promise((resolve,reject) =>{
+//     setTimeout(() =>{
+//         resolve("Iam Learning Promise");
+//     },3000);
+// });
+// myPromise.then((data) =>{
+//     console.log(data);//Iam Learning Promise
+// })
+// Output after 3 seconds:
+// Iam Learning Promise
+
+// how reject works?
+// Rejects are handled by catch().
+// const myPromise2 = new Promise((resolve,reject) =>{
+//     setTimeout(() =>{
+//         reject("This is rejected: bad code");
+//     },2000)
+// }).then((data) =>{
+// console.log(data);
+// }).catch((err) =>{
+//     console.log(err);//This is rejected: bad code
+// })
+</script>
+</html>

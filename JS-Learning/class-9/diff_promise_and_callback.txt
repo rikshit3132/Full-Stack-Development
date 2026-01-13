@@ -1,0 +1,228 @@
+#### promise vs callbacks
+
+Promises are better than callbacks because they 
+avoid callback hell, prevent inversion of control, 
+provide predictable state management, allow chaining, 
+and offer centralized error handling.
+
+
+### What callbacks actually solve (quick recap)
+
+Callbacks were introduced to handle asynchronous operations:
+
+fs.readFile("a.txt", (err, data) => {
+    if (err) {
+        console.log(err);
+    } else {
+        console.log(data);
+    }
+});
+
+✔️ Non-blocking
+❌ But problems appear as complexity grows…
+
+#### The REAL problems with callbacks 
+ Problem 1: Callback Hell (Pyramid of Doom)
+readFile("a.txt", (err, a) => {
+  readFile("b.txt", (err, b) => {
+    readFile("c.txt", (err, c) => {
+      readFile("d.txt", (err, d) => {
+        console.log(a, b, c, d);
+      });
+    });
+  });
+});
+
+ Problems:
+Hard to read
+Hard to debug
+Hard to maintain
+Problem 2: Inversion of Control (BIG INTERVIEW POINT)
+
+You give control of your logic to another function.
+
+doSomethingAsync((data) => {
+   // Will this run once?
+   // Will it run twice?
+   // Will error be handled?
+});
+
+You trust that:
+Callback is called only once
+Callback is called at the right time
+Errors are handled correctly
+This trust is dangerous.
+
+Problem 3: Error handling is messy
+doA((err, resA) => {
+  if (err) return handle(err);
+
+  doB(resA, (err, resB) => {
+    if (err) return handle(err);
+
+    doC(resB, (err, resC) => {
+      if (err) return handle(err);
+    });
+  });
+});
+
+Error handling is:
+Repetitive
+Easy to forget
+Not centralized
+
+Problem 4: No chaining or composition
+Callbacks don’t return values you can chain.
+const result = readFile("a.txt", cb); //useless 
+not able to return result and use.
+
+#### How Promises fix ALL of this ?
+
+Problem 1 FIX: Flat & readable code
+readFile("a.txt")
+  .then(a => readFile("b.txt"))
+  .then(b => readFile("c.txt"))
+  .then(c => readFile("d.txt"))
+  .catch(err => console.log(err));
+✔️ Linear flow
+✔️ Easy to read
+
+Problem 2 FIX: No inversion of control
+With Promises:
+You don’t give your logic away
+You attach handlers to a promise
+const p = readFile("a.txt");
+p.then(data => console.log(data));
+p.catch(err => console.log(err));
+
+## Promise guarantees:
+.then() runs once
+Either resolve OR reject (not both)
+State is immutable
+
+Problem 3 FIX: Centralized error handling
+readFile("a.txt")
+  .then(data => process(data))
+  .then(result => save(result))
+  .catch(err => console.log(err));
+✔️ One .catch() handles everything
+✔️ Errors bubble automatically
+
+
+Problem 4 FIX: Chaining & composition
+
+Promises return values:
+
+readFile("a.txt")
+  .then(data => data.toUpperCase())
+  .then(data => console.log(data));
+Impossible with callbacks 
+
+
+
+#### why promise looks faster?
+Internal working of CALLBACKS
+Example
+fs.readFile("a.txt", cb);
+
+What happens internally (Node.js):
+JS Call Stack
+│
+│ fs.readFile()
+│
+└── Delegated to libuv
+      │
+      ├── OS thread reads file
+      │
+      └── When done → callback queued
+
+Event Loop phase
+The callback is placed in the Callback Queue (macrotask queue).
+Callback Queue (macrotask)
+┌─────────────────────────┐
+│ cb (readFile result)    │
+└─────────────────────────┘
+
+Execution
+Event loop picks it only when stack is empty
+Callback runs
+You handle error/data manually
+Problems at internal level ❌
+No guarantee callback runs once
+No standard error propagation
+Nested callbacks = nested queues
+Control handed to external function
+
+Internal working of PROMISES
+Example
+fs.promises.readFile("a.txt")
+  .then(data => console.log(data))
+  .catch(err => console.log(err));
+
+What happens internally:
+JS Call Stack
+│
+│ readFile()
+│
+└── Promise created (PENDING)
+      │
+      ├── Async work → libuv
+      │
+      └── Resolve / Reject
+
+
+When resolved:
+.then() is not executed immediately
+It is pushed into the Microtask Queue
+Microtask Queue
+┌─────────────────────────┐
+│ then() handler          │
+└─────────────────────────┘
+Event Loop priority (VERY IMPORTANT)
+1️⃣ Call Stack
+2️⃣ Microtask Queue (Promises)
+3️⃣ Callback Queue (setTimeout, fs callbacks)
+So Promise handlers run BEFORE callbacks.
+
+
+Why Promises LOOK faster  (Truth)
+❗ Important truth:
+
+Promises are NOT faster at I/O
+File reading, network calls, DB queries:
+Same OS work
+Same libuv threads
+Same performance
+Then why do promises execute first?
+Because of queue priority.
+Example:
+setTimeout(() => console.log("timeout"), 0);
+Promise.resolve().then(() => console.log("promise"));
+Output:
+promise
+timeout
+Reason:
+Promise .then() → microtask queue
+setTimeout → macrotask queue
+
+
+
+Interview TRICK question 
+Q: Are promises faster than callbacks?
+Best answer:
+Promises are not faster in terms of I/O, 
+but their handlers execute earlier because they 
+use the microtask queue, which has higher priority 
+than the callback queue.
+
+
+### One final example 
+console.log("start");
+fs.readFile("a.txt", () => console.log("callback"));
+Promise.resolve().then(() => console.log("promise"));
+console.log("end");
+Output:
+start
+end
+promise
+callback

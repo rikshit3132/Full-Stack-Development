@@ -1,0 +1,102 @@
+### why Promises even exist (very important)
+-> JavaScript is single-threaded.
+That means:
+-> JS can do only ONE thing at a time
+-> If a long task blocks JS → the whole page freezes 
+ So JS uses asynchronous operations:
+-> Fetch data from server
+-> Read file
+-> setTimeout
+-> Database calls
+#### Problem without Promise
+let data = getDataFromServer(); //  this takes time
+console.log(data);             // JS doesn't wait
+JS does not wait for the result.
+
+Note:- “Hey JS, this work will finish later.
+When it finishes, THEN do something.”
+-> That “something later” container is a Promise.
+
+### what is promise ?
+-> A Promise is an object that represents a value that 
+will be available in the future.
+-> Not now.
+-> Not immediately.
+-> But later.
+
+### Real-life analogy (very important)
+
+-> You order food on Zomato.
+-> They give you a receipt.
+That receipt is a Promise.
+--> Food not ready 
+--> Food will come later 
+You can:
+---> eat if delivered
+---> complain if cancelled
+-> Promise = Receipt of future result
+
+#### Promise has ONLY 3 states
+-> A promise is always in one of these:
+PENDING   → initial state
+FULFILLED → operation successful
+REJECTED  → operation failed
+-> From pending state the promise 
+-> either go in FULFILLED state
+-> or go in REJECTED state.Not comes back,terminated.
+-> Once fulfilled or rejected → state never changes again.
+
+#### Creating a Promise
+const promise = new Promise((resolve, reject) => {
+    // some async work
+});
+
+## (resolve, reject)
+-> resolve(value) → success
+-> reject(error) → failure
+
+
+Example -1:-
+const promise = new Promise((resolve, reject) => {
+     console.log("Iam inside promise!!!");
+});
+It Immediately fulfilled.
+
+Example 2: Promise with delay
+const myPromise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve("Data received");
+    }, 2000);
+});
+
+Promise created → pending
+After 2 seconds → fulfilled
+
+### Using a Promise (THIS is where confusion starts)
+**** You do NOT get value directly
+ This will NOT work:
+const result = myPromise;
+console.log(result); // Promise object, not data
+Because the value is future value.
+
+##### How to get value from Promise → .then()
+myPromise.then((data) => {
+    console.log(data);
+});
+
+*** Meaning of .then()
+“WHEN the promise is fulfilled, THEN run this function”
+
+##### Handling failure → .catch()
+const promise = new Promise((resolve, reject) => {
+    reject("Something went wrong");
+});
+promise
+  .then((data) => {
+      console.log(data);
+  })
+  .catch((error) => {
+      console.log(error);
+  });
+Note:- .catch() runs only if promise is rejected.
+

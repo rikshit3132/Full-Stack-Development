@@ -1,0 +1,138 @@
+### What is Inversion of Control (IoC) ?
+ -> Inversion of Control happens when you give control 
+of your code to someone else and you don’t know when, 
+how many times,or with what data it will be called.
+
+### In JS async programming:
+-> Callbacks → IoC problem
+-> Promises → IoC solution
+
+### Normal (Direct Control) Function Call
+You call a function → it runs → you get the result:-
+
+function add(a, b) {
+  return a + b;
+}
+
+const result = add(2, 3);
+console.log(result);
+-> You are in control
+-> Function runs once
+-> Predictable behavior
+
+### Callback = Inversion of Control
+Example: Callback-based async code
+
+function fetchData(callback) {
+  setTimeout(() => {
+    callback("DATA RECEIVED");
+  }, 1000);
+}
+
+fetchData((data) => {
+  console.log(data);
+});
+
+-> Looks fine… but control is inverted.
+
+### Where is Inversion of Control here?
+-> You gave your callback function to fetchData.
+-> Now you trust fetchData to:
+-> call your callback
+-> call it only once
+-> call it at the right time
+-> pass correct data
+-> not swallow errors
+
+-> You LOST control over:
+
+Question	                         Who controls it?
+Will callback be called?	        ❌ Not you
+When will it be called?	            ❌ Not you
+How many times?	                    ❌ Not you
+What if error occurs?	            ❌ Not you
+
+##### Callback IoC Problem Example
+function fetchData(callback) {
+  callback("DATA 1");
+  callback("DATA 2"); // 😱 called twice
+}
+fetchData((data) => {
+  console.log("Processing:", data);
+});
+
+Output:
+Processing: DATA 1
+Processing: DATA 2
+
+❌ Your logic breaks
+❌ No protection
+❌ No guarantees
+
+This is Inversion of Control.
+
+Real-Life Analogy
+-> Callback = Giving your car keys 🚗
+You:
+-> “Here are my car keys. Please drop me home.”
+Driver:
+-> might drop you late
+-> might drive twice
+-> might crash
+-> might never come back
+-> You have no control.
+
+
+#### Promises = Control Returned Back 
+
+Promises were invented to take back control.
+-> Promise Example
+function fetchData() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("DATA RECEIVED");
+    }, 1000);
+  });
+}
+
+fetchData()
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+
+### Why Promises fix IoC?
+Because you don’t give your function to someone else.
+Instead:
+You get a Promise object
+You attach handlers (then, catch)
+Promise has strict rules.
+
+Promise Guarantees (VERY IMPORTANT)
+
+Promises guarantee:
+
+Guarantee	                            Explanation
+Resolve or Reject only once     	    No double execution
+State is immutable	                    Cannot change after settled
+Errors are catchable	                No silent failure
+Execution order is predictable	        Microtask queue
+
+Example:
+let p = new Promise((resolve, reject) => {
+  resolve("OK");
+  resolve("AGAIN"); // ignored
+});
+
+p.then(console.log);
+✔ Prints only once
+✔ No IoC problem
+
+Inversion of Control in JS happens mainly 
+with callbacks where we hand over execution 
+control to another function. Promises solve this
+by giving us a promise object that guarantees single 
+resolution, predictable execution, 
+and centralized error handling.

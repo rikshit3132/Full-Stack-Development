@@ -1,0 +1,89 @@
+### Async tasks are not saved in Web APIs.
+Web APIs execute and manage async operations, 
+and once completed, their callbacks are placed into
+the task queue or microtask queue, from where 
+the event loop sends them back to the call stack.
+    
+                sync js
+                 |
+                 |
+                 |
+            Async js(Promises)(Microtask queue)
+                 |
+                 |
+                 |
+        callbacks(callback queue or macrotask queue)
+
+
+libuv in ONE LINE (memorize this)
+
+libuv is the system that allows Node.js to do async work (like file, network, timers) without blocking JavaScript.
+
+That’s it.
+Now let’s expand.
+
+ Why libuv is even needed?
+Fact 1: JavaScript is single-threaded 
+It can do only one thing at a time.
+
+Fact 2: Real-world tasks are slow 
+
+Examples:
+Reading a file
+Talking to a database
+Network request
+Timer
+If JS did these directly:
+JS waits → program freezes 
+libuv exists to prevent this freezing.
+
+3️⃣ Think of libuv as a “manager” 
+Imagine this:
+JavaScript = CEO
+libuv = Operations Manager
+OS / Threads = Workers
+CEO (JS): "Read this file"
+Manager (libuv): "Okay, I’ll handle it"
+CEO (JS): keeps doing other work
+JS does not wait.
+ What exactly does libuv do?
+libuv does 4 main jobs:
+ 1. Event Loop
+Controls when callbacks run
+ 2. Thread Pool
+Runs blocking tasks in background threads
+ 3. OS Interaction
+Talks to your operating system
+ 4. Async Abstraction
+
+Hides OS complexity from JS
+ Simple example (fs.readFile)
+const fs = require("fs");
+console.log("A");
+fs.readFile("file.txt", () => {
+  console.log("B");
+});
+console.log("C");
+What you think happens 
+A → read file → B → C
+What actually happens 
+A
+C
+B
+WHY?
+Because:
+ JS sends readFile to libuv
+ libuv uses thread pool
+ JS continues
+ When done → callback queued
+ Event loop runs it later
+ Where libuv “lives” 
+Important to understand:
+Thing	                Where
+JavaScript	            V8 engine
+Node.js APIs	        JavaScript layer
+libuv	                C library
+OS threads	            Operating system
+
+JS → Node APIs → libuv → OS
+JS never talks to OS directly.
