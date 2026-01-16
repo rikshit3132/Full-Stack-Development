@@ -23,3 +23,6 @@ chapter - 2 (DOM - 2)
 8) event capturing
 9) questions on bubbling
 10) practice questions
+
+
+chapter - 1 (DOM-3)

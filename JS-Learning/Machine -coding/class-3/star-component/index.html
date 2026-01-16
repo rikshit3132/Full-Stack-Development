@@ -1,0 +1,46 @@
+<!-- Star component -->
+<!-- Gather requirements first don't assume requirements -->
+<!-- interviewer thinks diff. than u, discuss with interviewer -->
+<!-- don't spend more than 10 min while discussing -->
+<!-- Must have requirements(MVP)-> Most viable product
+Rating component
+1. rating from 1 to 5
+2.when clicked it rating should appear
+3.on hover selection of stars should toggle
+
+Good to have features 
+1.partial star 
+2.emoji's instead of number
+3. slider(can we think of it)
+4.what is avg. rating?
+
+
+Approach:-
+events:-
+1) click,hover,mouseleave
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 id = "heading">Star component</h1>
+        <div class="star_component" id = "star_component">
+            <div class="star" idx ="1">&#9733</div>
+            <div class="star" idx ="2">&#9733</div>
+            <div class="star" idx ="3">&#9733</div>
+            <div class="star" idx ="4">&#9733</div>
+            <div class="star" idx ="5">&#9733</div>
+        </div>
+        <div id="count_stars">Count is:<span id = "count"></span><span id = "emoji"></span></div>
+    </div>
+</body>
+<script src="./index.js"></script>
+</html>
