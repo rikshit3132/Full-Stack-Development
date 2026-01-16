@@ -1,0 +1,23 @@
+In front end development interviews
+There are 2 types of LLD rounds
+1) Abstract-
+One liner only.
+Example:- Build star component,Timer component like that.
+Here we have to build an mini project from the scratch.
+steps involves are:-
+design, understand,approach
+
+
+futher 2 types of Abstract rounds:-
+Vanilla JS -> HTML CSS JS
+React -> React library
+companies used this:-
+microsoft,uber,paypal,amazon
+
+2) A partial project
+In this case a small snippet of code is already given.
+There are some bugs also in the code we have to identify those
+bugs and also implements the remaining code required.
+here debugging skills are checked.
+companies used this:-
+google,salesforce .. having there own frameworks
