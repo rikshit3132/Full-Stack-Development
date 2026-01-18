@@ -112,3 +112,26 @@
 7) promise Chaining?
 8) then,catch,finally
 9) why promise better than callback
+
+### JS chapter 10 topics
+1) then,catch,finally write up down
+2) multiple then,catch and finally block in one eg.
+3) why promise returns Promise.resolve(data)
+4) error handling using throw new Error("abc)
+5) playing with promise chain
+6) static func of promise:-all,
+7) polyfills for all static funcs.
+8) building promise polyfill
+
+### JS chapter 11 topics
+1) Revision of static methods
+2) Polyfills of static methods
+3) Problems with polyfills
+4) async and await
+5) try,catch and finally
+6) examples of async and await cases->
+firstly promise than aysnc and await
+7) flow of async and await and error handling
+8) real world example
+9) fetching some api using async await
+
