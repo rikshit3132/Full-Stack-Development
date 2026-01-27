@@ -1,0 +1,123 @@
+#### Async/Await
+
+// async/await was created to write Promise-based 
+// async code in a synchronous-looking, readable, 
+// and maintainable way.
+
+##### Why asyc/await comes?
+Promises came (BETTER, but still hard)
+Promise = future value
+let promise = new Promise((resolve, reject) => {
+  setTimeout(() => resolve("Data"), 2000);
+}); 
+promise.then(data => {
+  console.log(data);
+});
+-> It is better but there is a problem when fetching data
+from the server.
+-> chain got expended,while fethching large and different
+data.
+
+for example:-
+-> But chaining still hurts 
+fetchUser()
+  .then(user => fetchPosts(user))
+  .then(posts => fetchComments(posts))
+  .then(comments => console.log(comments))
+  .catch(err => console.log(err));
+->  Still not natural reading
+
+#### Core idea of async / await (MOST IMPORTANT)
+ 
+We want async code to look like sync code
+Instead of:
+then().then().then()
+We want:
+let result = getData();
+But without blocking JS
+async/await was created
+
+### async — WHY it exists
+Rule:
+
+-> Any function marked async automatically returns a 
+Promise.
+
+async function test() {
+  return 10;
+}
+What you think it returns:
+10
+
+What it ACTUALLY returns:
+Promise { 10 }
+
+Equivalent code:
+function test() {
+  return Promise.resolve(10);
+}
+
+#### await — WHAT exactly it does
+Promise without await
+function getData() {
+  return Promise.resolve("Hello");
+}
+console.log(getData());
+
+Output:
+Promise { "Hello" }
+You don’t want the box
+You want the value inside
+
+### WHAT await REALLY DOES 
+-> JS sees await
+-> If value is a Promise → pause THIS function
+-> JS continues other work (event loop still running)
+-> When Promise resolves → resume function
+-> Replace await with resolved value
+
+-> JS does NOT stop globally
+-> Browser / Node does NOT freeze
+
+### Let’s VISUALIZE it ⏱
+console.log("Start");
+async function test() {
+  console.log("Inside function");
+  let data = await new Promise(resolve =>
+    setTimeout(() => resolve("Done"), 2000)
+  );
+  console.log(data);
+}
+test();
+console.log("End");
+
+
+### Parallel vs Sequential (WHY PERFORMANCE MATTERS)
+Slow (sequential)
+let a = await task1(); // 2s
+let b = await task2(); // 2s
+⏱ Total = 4s
+
+Fast (parallel)
+let p1 = task1();
+let p2 = task2();
+let [a, b] = await Promise.all([p1, p2]);
+⏱ Total = 2s
+await does NOT mean parallel automatically
+
+
+#### FINAL MENTAL MODEL (REMEMBER THIS)
+-> async → wraps return value in Promise
+-> await → unwraps Promise value
+-> Code looks synchronous but runs async
+
+
+#### FINAL INTERVIEW CHEAT SHEET 
+
+✔ async always returns Promise
+✔ await unwraps Promise
+✔ Rejection = throw
+✔ await → microtask queue
+✔ Promise.all for parallel
+✔ await doesn’t block JS
+✔ Missing await = bug
