@@ -1,0 +1,47 @@
+body{
+background-image: url(../img/girl.jpg);
+background-repeat: no-repeat;
+background-size: cover;
+background-position: unset;
+background-attachment: fixed;
+}
+#main_heading{
+    font-family: 'Times New Roman', Times, serif;
+    justify-content: center;
+    text-align: center;
+    margin-top: 7rem;
+    font-weight: bold;
+    color: red;
+    font-size: 4rem;
+}
+#container{
+display: flex;
+flex-direction: row;
+justify-content: center;
+}
+.star{
+    font-size: 5rem;
+    color: gray;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.display{
+    display: flex;
+    font-size: 3rem;
+    color: rgb(25, 179, 239);
+    justify-content: center;
+}
+.count{
+    color : red;
+}
+.blue{
+    color: blue;
+}
+.green{
+    color: green;
+}
+.emoji{
+     display: flex;
+    font-size: 3rem;
+     justify-content: center;
+}

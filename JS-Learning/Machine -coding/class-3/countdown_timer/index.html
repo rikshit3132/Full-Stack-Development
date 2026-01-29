@@ -1,0 +1,78 @@
+<!-- 
+    Requirements
+     
+    Must have features:
+    1. what is the maximum time (24 hours)
+    2. Format - HH MM SS
+    3. Pause, Reset, Start, Continue
+    4. Inputs: validations (numbers)
+        1. length of each input should be max 2
+        2. 00-99 (61 seconds -> 1 min + , 1 second) 
+        (65 mins -> 1 hr +, 5 mins)
+        (28hrs ->  max 24 hrs - handle edge case (throw error))
+
+    Good to have features:
+    1. once timer start add music
+    2. give me segment button
+    
+    Approach:
+    3 input events for 3 input types
+    error handling for hours handler
+    3 event listners for 3 buttons 
+
+ -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="icon" type="image/png" href="./img/count_down_logo.png">
+    <title>count_down_timer</title>
+    <link rel="stylesheet" href="./style.css">
+   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    
+    <div class="motivation_texts">
+            <h3 class="texts"></h3>
+        </div>
+    <div class="container">
+        <h1 id = "main_heading">Count Down Timer</h1>
+        
+        <div class="timer_inputs">
+            <input type="number" name="hrs" id="hrs" maxlength="2" oninput="this.value = this.value.slice(0,this.maxLength)" placeholder="hrs">
+            <span class="divider1_input">:</span>
+            <input type="number" name="mins" id="mins" maxlength="2" oninput="this.value = this.value.slice(0,this.maxLength)" placeholder="min">
+            <span class="divider2_input">:</span>
+            <input type="number" name="secs" id="secs" maxlength="2" oninput="this.value = this.value.slice(0,this.maxLength)" placeholder="secs">
+        </div>
+        <div class="buttons">
+            <div class="music">
+        <button class="music_start"><img src="./img/musicStart.png" alt="musicStart"></button>
+        <button class="music_stop"><img src="./img/musicStop.png" alt="musicStop"></button>
+    </div>
+            <div class="start_button">
+                <button id = "start"><img src="./img/start.png" alt="start_btn"></button>
+            </div>
+            <div class="pause_button">
+                <button id = "pause"><img src="./img/pause.png" alt="pause_btn"></button>
+            </div>
+            <div class="continue_button">
+                <button id = "continue"><img src="./img/continue.png" alt="cont_btn"></button>
+            </div>
+            <div class="reset_button">
+                <button id = "reset"><img src="./img/reset.png" alt="reset_btn"></button>
+            </div>
+            
+        </div>
+        
+    </div>
+    <audio id="bgMusic" ></audio>
+    <audio id="endMusic" src="./music/end.mp3"></audio>
+</body>
+<script src="./index.js"></script>
+</html>
