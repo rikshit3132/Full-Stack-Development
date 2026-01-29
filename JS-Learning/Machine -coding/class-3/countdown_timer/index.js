@@ -252,7 +252,7 @@ function startMusicRotation() {
   musicIntervalId = setInterval(() => {
     currentMusicIndex = getRandomMusicIndex();
     playCurrentMusic();
-  }, 50000);
+  }, 500000);
 }
 function stopMusicRotation() {
   clearInterval(musicIntervalId);
