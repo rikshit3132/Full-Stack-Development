@@ -16,9 +16,11 @@ body{
     flex-direction: column;
     justify-content: center;
     height: 25rem;
-    width:50rem;
+    width: 90%;
+    max-width: 50rem;
+    margin: 2rem auto;
     /* margin-top: 1rem; */
-    margin-left: 14rem;
+    
     margin-bottom: 2.5rem;
     border: 10px solid gainsboro;
     border-radius: 1.5rem;
@@ -151,11 +153,12 @@ background-color: aquamarine;
     display: flex;
     justify-content: center;
     flex-direction: row;
-    width:35rem;
-    margin-left: 23rem;
+     width: 90%;
+    max-width: 35rem;
+    margin: 1rem auto;
  }
  .texts{
-    width:33rem;
+    width: 100%;
     text-align: center;
     font-size: 2rem;
 
@@ -183,4 +186,73 @@ width: 40px;   /* control image size */
 }
 .music_stop{
     display: none;
+}
+
+@media (max-width: 768px) {
+
+  body {
+    background-position: center;
+  }
+
+  #main_heading {
+    font-size: 1.6rem;
+    margin: 1rem auto;
+    width: auto;
+  }
+
+  .container {
+    height: auto;
+    padding: 1.5rem 1rem;
+    border-width: 6px;
+  }
+
+  .timer_inputs {
+    gap: 0.8rem;
+  }
+
+  #hrs, #mins, #secs {
+    width: 4rem;
+    height: 2.8rem;
+    font-size: 1.8rem;
+  }
+
+  .divider1_input,
+  .divider2_input {
+    font-size: 2.5rem;
+  }
+
+  .buttons {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  #start, #pause, #continue, #reset,
+  .music_start, .music_stop {
+    width: 6rem;
+    height: 3.5rem;
+    margin: 0.5rem;
+  }
+
+  #start img,
+  #pause img,
+  #continue img,
+  #reset img,
+  .music_start img,
+  .music_stop img {
+    width: 30px;
+  }
+
+  .texts {
+    font-size: 1.4rem;
+  }
+}
+@media (max-width: 480px) {
+  .texts {
+    font-size: 1.2rem;
+  }
+
+  #hrs, #mins, #secs {
+    width: 3.5rem;
+    font-size: 1.5rem;
+  }
 }
