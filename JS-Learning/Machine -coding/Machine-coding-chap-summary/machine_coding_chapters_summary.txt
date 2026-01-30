@@ -13,7 +13,7 @@ Event Listeners
 
 
 chapter - 2 (DOM - 2)
-1) Fragments in dom
+1) Fragments in dom -->> pending
 2) event Listeners
 3) how to intialize event Listener fun
 4) mouse and keyboards events
@@ -25,4 +25,15 @@ chapter - 2 (DOM - 2)
 10) practice questions
 
 
-chapter - 1 (DOM-3)
+chapter - 3 (DOM-3)
+1) Star Component
+2) Timer Component
+
+chapter - 4 (DOM-4)
+1) Nested Comments Component
+-->> like e.parentNode.parentNode like this
+-->> e.target.closest() (v.imp)
+2) OTP Component
+-->> use of webkit--> In order to delete slider inside input
+-->> nextElementSibling() 
+-->> previousElementSibling() 
