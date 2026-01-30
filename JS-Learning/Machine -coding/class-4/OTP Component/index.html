@@ -1,0 +1,104 @@
+<!-- Build otp component -->
+<!-- Requirements -->
+<!-- Must have  -->
+<!-- 1. focus should go next element in inserting
+      2. focus should go previous element in deleting
+ -->
+<!-- Good to have -->
+<!-- 1.css properties -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OTP Component</title>
+    <style>
+      /* discarding the slider inside the input box */
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+      }
+      h1 {
+        color: mediumseagreen;
+        font-family: "Courier New", Courier, monospace;
+        font-weight: bolder;
+      }
+      input {
+        height: 4rem;
+        width: 4rem;
+        margin: 1rem;
+        border: 5px solid brown;
+        padding: 2px;
+        text-align: center;
+        font-weight: bolder;
+        font-family: "Courier New", Courier, monospace;
+        font-size: 2.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>OTP Component</h1>
+      <div class="otp_container">
+        <input
+          type="number"
+          maxlength="1"
+          minlength="1"
+          oninput="this.value = this.value.slice(0, this.maxLength)"
+        />
+        <input
+          type="number"
+          maxlength="1"
+          minlength="1"
+          oninput="this.value = this.value.slice(0, this.maxLength)"
+        />
+        <input
+          type="number"
+          maxlength="1"
+          minlength="1"
+          oninput="this.value = this.value.slice(0, this.maxLength)"
+        />
+        <input
+          type="number"
+          maxlength="1"
+          minlength="1"
+          oninput="this.value = this.value.slice(0, this.maxLength)"
+        />
+        <input
+          type="number"
+          maxlength="1"
+          minlength="1"
+          oninput="this.value = this.value.slice(0, this.maxLength)"
+        />
+        <input
+          type="number"
+          maxlength="1"
+          oninput="this.value = this.value.slice(0, this.maxLength)"
+        />
+      </div>
+    </div>
+  </body>
+  <script>
+    const otpContainer = document.querySelector(".otp_container");
+    otpContainer.addEventListener("input", (e) => {
+        const target = e.target;
+        if(target.value.length === target.maxLength){
+            if(target.nextElementSibling != null){
+                target.nextElementSibling.focus();
+            }
+        }else if(target.value === ""){
+            if(target.previousElementSibling != null){
+                target.previousElementSibling.focus();
+            }
+        }
+    });
+  </script>
+</html>
