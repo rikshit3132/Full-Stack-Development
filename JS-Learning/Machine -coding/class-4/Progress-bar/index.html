@@ -1,0 +1,47 @@
+<!-- create a progress bar  -->
+<!-- Requirements -->
+<!-- Must have  -->
+<!-- 1. Color increases equal amount -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Progress Bar</title>
+    <style>
+      .progress-bar{
+        height: 20px;
+        border: 1px solid black;
+        border-radius: 0.4rem;
+        margin: 15px;
+        padding: 3px;
+      }
+      .bar{
+        background-color: yellowgreen;
+        border-radius: 0.4rem;
+        height: 100%;
+        transition: width 3ms;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="progress-bar">
+      <div class="bar" style="width: 10%;"></div>
+    </div>
+  </body>
+  <script>
+    const bar = document.querySelector(".bar");
+    function incProgress(currVal, constVal) {
+      const counter = setInterval(() => {
+        currVal += constVal;
+        if (currVal >= 100) {
+          currVal = 100;
+          clearInterval(counter);
+        }
+         bar.style.width = currVal + "%";
+      }, 500);
+    };
+    incProgress(0, 2);
+  </script>
+</html>
