@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bishop Path Trace</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="heading">Chess Path Trace</h1>
+      <div class="inner_container">
+
+        <div class="options">
+        <label for="chessboard" class="label">Select Path: </label>
+        <select id="chessboard" class="chessboard" name="chessboard">
+          <option value="none" class = "none" id = "none">None</option>
+          <option value="bishop" class = "bishop" id = "bishop">Bishop (diagonals)</option>
+          <option value="rook" class="rook" id="rook">Rook (rows & columns)</option>
+          <option value="queen" class="queen" id="queen">Queen (rook + bishop)</option>
+          <option value="knight" class="knight" id="knight">Knight (Horse)</option>
+        </select>
+      </div>
+      <table class="table" cellspacing="0">
+        <tbody id="tableBody"></tbody>
+      </table>
+      </div>
+      
+    </div>
+  </body>
+  <script src="./index.js"></script>
+</html>

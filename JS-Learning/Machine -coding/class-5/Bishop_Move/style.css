@@ -1,0 +1,167 @@
+body{
+    background-image: url(./img/shimla-4.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+/* .inner_container{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+} */
+.heading{
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(94, 14, 253);
+}
+.label{
+    font-size: 2rem;
+    font-family: 'Courier New', Courier, monospace;
+    color: #f70c24;
+    font-weight: bolder;
+    margin-left: 10%;
+}
+.chessboard{
+    height: 2.5rem;
+    width: 18rem;
+    border: 3px solid rgb(220, 120, 107);
+    border-radius: 12px;
+    background-color: rgb(112, 197, 161);
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+}
+option{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-display: auto;
+}
+.bishop,.queen{
+    background-color: aquamarine;
+    font-size: 1.5rem;
+    border: 2px solid gray;
+}
+.none,.knight,.rook{
+    background-color: rgb(185, 238, 79);
+    font-size: 1.5rem;
+    border: 2px solid gray;
+}
+.table{
+    margin: 0 auto;
+    border-bottom: 7px solid rgba(90, 80, 74);
+    border-top: 7px solid rgba(233, 13, 35);
+    border-left: 7px solid rgba(39, 170, 193);
+    border-right: 7px solid rgba(35, 255, 11);
+    border-radius: 1rem;
+    margin-top: 2%;
+   
+}
+.box{
+    height: 3.2rem;
+    width: 3.2rem;
+    text-align: center;
+    border: 3px solid rgb(193, 78, 203,0.5);
+    font-size: 2rem;
+}
+.white{
+    background-color: rgba(48, 198, 225, 0.6);
+    
+}
+.black{
+    background-color: rgba(245, 118, 157, 0.5)
+}
+.yellow{
+    background-color: yellow;
+}
+.red{
+    background-color: red;
+}
+.options{
+    justify-content: center;
+    text-align: center;
+}
+.box {
+  position: relative;
+}
+
+.dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.dot.green {
+  background: #4caf50; /* green */
+}
+
+.dot.red {
+  background: #e53935; /* red */
+}
+
+
+/* ---------- RESPONSIVE (MOBILE) ---------- */
+@media (max-width: 768px) {
+
+  body {
+    background-position: center;
+    background-size: cover;
+  }
+
+  .heading {
+    font-size: 2rem;
+  }
+
+  .label {
+    font-size: 1.2rem;
+    margin-left: 5%;
+  }
+
+  .chessboard {
+    width: 8rem;
+    height: 2.2rem;
+    font-size: 1rem;
+  }
+
+  .table {
+    margin-top: 5%;
+    border-width: 4px;
+  }
+
+  .box {
+    height: 2.4rem;
+    width: 2.4rem;
+    font-size: 1.5rem;
+    border-width: 2px;
+  }
+
+  .dot {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* ---------- VERY SMALL PHONES ---------- */
+@media (max-width: 480px) {
+
+  .heading {
+    font-size: 1.6rem;
+  }
+
+  .box {
+    height: 2rem;
+    width: 2rem;
+    font-size: 1.2rem;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+  }
+}
