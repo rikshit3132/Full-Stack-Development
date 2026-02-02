@@ -1,0 +1,98 @@
+.conatiner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.label1{
+    font-size: 1.5rem;
+    color: salmon;
+    font-family: 'Courier New', Courier, monospace;
+    margin-right: 1%;
+    font-weight: bold;
+    /* border: 2px solid cyan; */
+}
+#grid_size{
+    height: 3rem;
+    width: 7rem;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2rem;
+    font-weight: 600;
+    color: red;
+    border: 2px solid teal;
+    border-radius: 1rem;
+}
+.generator{
+    margin-left: 1%;
+    height: 3rem;
+    width: 9rem;
+    background-color: teal;
+    border-radius: 1rem;
+    cursor: pointer;
+    color:white;
+    border: 2px solid wheat;
+    font-size: 1.6rem;
+    font-weight: bold;
+    
+}
+.left,.right,.up,.down{
+    width: 7rem;
+    height: 3rem;
+    background-color: teal;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color:white;
+    border: 2px solid wheat;
+    border-radius: 1rem;
+    margin-left: 1%;
+    cursor: pointer;
+}
+.heading{
+    text-align: center;
+    color: rebeccapurple;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 3rem;
+}
+.input_button{
+    text-align: center;
+    justify-content: center;
+}
+
+.table{
+    margin-top:2%;
+    display: flex;
+    justify-content: center;
+}
+.tbody{
+    border: 2px solid burlywood;
+}
+.buttons{
+    margin-top: 3%;
+    display: flex;
+    justify-content: center;
+
+}
+.box{
+    height: 3.2rem;
+    width: 3.2rem;
+    text-align: center;
+    border: 1px solid rgb(31, 36, 40);
+    font-size: 2rem;
+    position: relative;
+}
+.silver {
+  width: 20px;
+  height: 20px;
+  background-color: #8c8d8f;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.borderchange{
+    border: 2px solid tomato;
+}
