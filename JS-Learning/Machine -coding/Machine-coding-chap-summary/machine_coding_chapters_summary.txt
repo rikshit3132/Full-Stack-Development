@@ -37,3 +37,20 @@ chapter - 4 (DOM-4)
 -->> use of webkit--> In order to delete slider inside input
 -->> nextElementSibling() 
 -->> previousElementSibling() 
+3) Progress Bar
+-->> set interval
+
+4) Memory Leaks
+-->> garbage collection
+-->> examples of it to understand.
+
+chapter - 5 (DOM-5)
+1) chess trace path
+-->> bishop,knight,rook,queen
+-->> closest method
+-->> data-set ->> data -*
+
+2)coin Movage
+-->> make a grid of 4*size*size
+-->> take 4 buttons left,right,up,down
+-->> move coin according to the button clicked
