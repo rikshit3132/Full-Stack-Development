@@ -1,0 +1,78 @@
+--> libuv is a C library that makes asynchronous 
+--> I/O possible in Node.js
+
+-->> Node.js itself is written in:
+C++
+Uses V8 (JavaScript engine)
+Uses libuv for async operations
+
+-->> Why Do We Need libuv?
+JavaScript is:
+Single-threaded
+Has only 1 Call Stack
+But Node.js can:
+Read files
+Make network requests
+Handle 1000s of users
+Run timers
+
+-->> This is only possible because of libuv.
+
+-->> What libuv Provides
+1️⃣ Event Loop
+Controls async execution cycle.
+
+2️⃣ Thread Pool
+Default size = 4 threads
+Used for:
+fs (file system)
+crypto
+dns
+compression
+
+3️⃣ Non-blocking Networking
+Sockets
+HTTP
+TCP
+UDP
+
+### How libuv Works (Step by Step)
+Example:
+const fs = require("fs");
+fs.readFile("data.txt", "utf8", (err, data) => {
+  console.log(data);
+});
+console.log("Done");
+🟢 Step 1
+JS executes fs.readFile
+It does NOT read file directly.
+It goes:
+JS → V8 → Node C++ → libuv
+
+🟢 Step 2
+
+libuv sends file reading task to:
+👉 Thread Pool
+Because file system is blocking at OS level.
+So:
+Thread Pool (background)
+   |
+   |-- Reads file
+Meanwhile...
+JS Call Stack continues.
+
+🟢 Step 3
+console.log("Done") runs immediately.
+Output:
+Done
+
+🟢 Step 4
+When thread finishes reading file:
+Callback goes to Event Loop
+Event Loop pushes it to Call Stack
+Callback executes
+Output:
+Done
+<file content>
+
+
