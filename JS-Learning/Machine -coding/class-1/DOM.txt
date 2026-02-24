@@ -4,7 +4,7 @@ represents an HTML/XML document as a tree of nodes,
 allowing JavaScript to read, manipulate, and 
 update the page dynamically.
 
- JavaScript does not manipulate HTML directly — 
+JavaScript does not manipulate HTML directly — 
 it manipulates the DOM
 
 
