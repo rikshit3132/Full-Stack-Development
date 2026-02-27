@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Basics</title>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+</head>
+<body>
+    <h1>React Basics</h1>
+    <!-- case- 1 -->
+    <!-- <div id="root">
+      <h1>Hello from react</h1>
+    </div> -->
+
+    <!-- case - 2 -->
+      <div id="root">
+      <!-- <div class="parent">
+        <div class="child">
+            <h1>Hello from react</h1>
+            <h1>Hello from react - 1</h1>
+        </div>
+      </div> -->
+    </div> 
+</body>
+
+<script type="text/babel">
+    // case - 1 mentioned in html 
+//  add the h1 tag inside root element 
+// using JS
+// const root = document.querySelector("#root");
+// const h1 = document.createElement("h1");
+// h1.innerText = "Hello from JS";
+// root.appendChild(h1);
+
+// React
+// createElement in react has
+// 3 things
+// type,config and children
+// add attributes into the config
+// const root = document.querySelector("#root");
+// const heading = React.createElement("h1",
+// {style:{color:"red"}},
+// "Hello from React");
+// root.appendChild(heading) error because type is diff.
+// In order to render react element, use ReactDOM.render();
+// render() func. takes 2 params,first para->child 
+// second para -> Parent where child is added
+// ReactDOM.render(heading,root);
+
+ // case - 2 mentioned in html 
+//  Approach-1 using Js
+// const root = document.querySelector("#root");
+// root.innerHTML = `<div class="parent">
+//         <div class="child">
+//             <h1>Hello from react</h1>
+//             <h1>Hello from react - 1</h1>
+//         </div>
+//       </div>`
+
+// Approach-2 using react
+// const root = document.querySelector("#root");
+// const parent = React.createElement("div",{id:"parent"},
+//     React.createElement("div",{id:"child"},
+//     [React.createElement("h1",{style :{color:"red"}},"Hello from react-1"),
+//     React.createElement("h1",{style :{color:"red"}},"Hello from react-2")
+//     ])
+// )
+// ReactDOM.render(parent,root);
+// still dom looks better than react implementation
+// To solve this problem,JSX components was introduced.
+
+// JSX
+// Java Script XML
+// const root = document.querySelector("#root");
+// This is called component
+// Which returns the JSX.
+// Not ReactDom understands JSX and neither browser
+// understands JSX.
+// Use babel in order to convert it into browser dom.
+// Babel converts this JSX into react based object -->>
+// react based object converted into ReactDOM -->> 
+// and into browser level dom
+
+// function H1Tag(){
+//     return <h1> Hello from React </h1>;
+// }
+// ReactDOM.render(<H1Tag/>,root);
+
+
+// case - 2 of html using jsx
+// const root = document.querySelector("#root");
+// function Container(){
+//     return (   
+//       <div class="parent">
+//         <div class="child">
+//             <h1>Hello from react</h1>
+//             <h1>Hello from react - 1</h1>
+//         </div>
+//       </div>
+//     );
+// }
+// ReactDOM.render(<Container/>,root);
+
+
+// props
+// calling components many times which were not
+// best in case of simple dom.
+// reusable components
+// const root = document.querySelector("#root");
+// function Container(){
+//     return (   
+//       <div class="parent">
+//         <div class="child">
+//             <h1>Hello from react</h1>
+//             <h1>Hello from react - 1</h1>
+//         </div>
+//       </div>
+//     );
+// }
+// function Ccontainer(){
+//     <div>
+//         <Container/>
+//         <Container/>
+//     </div>
+// }
+// ReactDOM.render(<Ccontainer/>,root);
+
+// props(properties) - data,content
+// same compoment but different properties
+// like same box but text and image different
+const rootElement = document.querySelector("#root");
+const root = ReactDOM.createRoot(rootElement);
+// child component
+function Container({greeting}){
+    // console.log(props);
+    // const {greeting} = props;
+    return (   
+      <div className="parent">
+        <div className="child">
+            <h1>{greeting}</h1>
+            <h1>Hello from react - 1</h1>
+        </div>
+      </div>
+    );
+}
+// parent component
+function Ccontainer(){
+     return (
+        <div>
+            <Container greeting = "greeting from first child"/>
+            <Container greeting = "greeting from second child"/>
+            <Container greeting = "greeting from third child"/>
+        </div>
+    );
+}
+root.render(<Ccontainer />);
+
+</script>
+</html>

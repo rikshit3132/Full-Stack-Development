@@ -1,0 +1,12 @@
+.outer{
+    display: flex;
+    flex-direction: row;
+}
+
+.inner{
+    height: 10rem;
+    width: 8rem;
+    border: 3px solid salmon;
+    margin: 2rem;
+    text-align: center;
+}

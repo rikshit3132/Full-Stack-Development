@@ -1,0 +1,14 @@
+### library
+It is just like a array,map like things which has consists
+of functions to do some task.
+React and ReactDOM also libraries because they solves
+real world problems but need some extra libraries to 
+solve things.
+For example:- need babel to convert JSX into DOM.
+-> developer friendly
+-> pick it up and use any combination
+### framework
+They are the heaviour than library because they have 
+end to end solution production ready code.
+They don't need some extra library externally.
+Examples are:- Angular,next,vue.

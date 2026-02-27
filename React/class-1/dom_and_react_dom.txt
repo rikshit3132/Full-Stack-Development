@@ -1,0 +1,76 @@
+### DOM 
+DOM (Document Object Model) is a tree representation 
+of HTML created by the browser.
+for example:-
+<div id="root">
+  <h1>Hello</h1>
+</div>
+
+Browser creates this DOM tree:
+
+Document
+ └── html
+     └── body
+         └── div#root
+             └── h1
+
+Key points:
+DOM is real
+Stored in browser memory
+Changing DOM = expensive
+Every change triggers reflow & repaint
+
+How DOM works (Vanilla JS)
+const h1 = document.getElementById("title");
+h1.innerText = "Hello React";
+
+What happens internally?
+
+-> Browser finds the node
+-> Updates DOM
+-> Recalculates layout
+-> Repaints screen
+--> Repeating this many times → slow apps
+
+Problems with DOM
+-> Direct manipulation is slow
+-> Code becomes complex
+-> Hard to maintain large UIs
+-> Manual DOM updates = bugs
+-->>This is where React comes in.
+
+### What is React DOM?
+
+-> React DOM is a library that:
+-> Connects React with the browser DOM
+-> Efficiently updates the real DOM
+-> Uses Virtual DOM
+
+import ReactDOM from "react-dom/client";
+
+
+### What is Virtual DOM? (CORE IDEA)
+
+Virtual DOM is:
+-> Lightweight JavaScript object
+-> Copy of real DOM
+-> Stored in memory
+
+Example:
+
+{
+  type: "h1",
+  props: { children: "Hello" }
+}
+->> React never updates the real DOM directly.
+
+### How React DOM works (Step-by-Step)
+
+When state changes:
+->  React creates a new Virtual DOM
+->  Compares with previous Virtual DOM (diffing)
+->  Finds minimal changes (reconciliation)
+->  React DOM updates only changed nodes
+ -> Fast
+ -> Efficient
+ -> Optimized

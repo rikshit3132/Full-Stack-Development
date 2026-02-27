@@ -1,0 +1,52 @@
+### React
+-> The core React library. 
+-> It gives you the brain of React.
+
+## What it does:
+-> Create components
+-> Use JSX
+-> Manage state & props
+-> Use Hooks (useState, useEffect, etc.)
+-> Define what the UI should look like
+
+### What it does NOT do:
+-> It does not touch the browser DOM
+-> It does not know where your UI will be rendered
+
+## Example:
+import React from "react";
+function App() {
+  return <h1>Hello React</h1>;
+}
+export default App;
+-> Here, React only describes the UI.
+
+### ReactDOM library (react-dom)
+-> What it is:
+-->> The bridge between React and the browser DOM.
+#### What it does:
+-> Takes React components
+-> Renders them into the real HTML DOM
+-> Updates the DOM efficiently using Virtual DOM
+
+## Main job:
+-> Attach React to the browser
+
+### Example:
+
+import ReactDOM from "react-dom/client";
+import App from "./App";
+const root = ReactDOM.createRoot(
+  document.getElementById("root")
+);
+root.render(<App />);
+
+-->> This line is key:
+root.render(<App />);
+-->>  ReactDOM puts your React app inside
+-->> <div id="root"></div> in index.html.
+
+### React and ReactDOM
+-->> React is used to create UI components and manage 
+-->> state, while ReactDOM is responsible for 
+-->> rendering those components into the browser’s DOM.

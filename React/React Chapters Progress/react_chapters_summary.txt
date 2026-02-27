@@ -2,3 +2,61 @@ chapter - 1
 Why learning react?
 DOM vs React-DOM
 single page application
+adding cdn links
+library and framework diff.
+react vs reactDom
+component (JSX)
+babel
+React components making
+props
+npm and yarn
+cdn vs npm?
+create react app 
+vite 
+parcel
+
+chapter - 2
+modules + libraries + configurations
+preprocessors
+create react project -->> WebPack,babel,config.,Hot Reloads
+-->> local development -->>bundles code and serve,slow process,development exp.poor,config. high,performance slow
+-->> begineer supportive/friendly
+
+vite -->> Use ESM/ES modules ,Rollup,config. less,fast performance
+-->> most prefered
+
+parcel -->> confi. less, used for smaller projects,no WebPack
+
+Components,props
+-- >>  Event handling in react
+-->> Example + - reset counter app 
+why count not gets updated on ui in counter app?
+diffing,reconcillation -> v. imp reactDom concept
+what is hooks?
+useState
+
+
+chapter - 3
+why state used?
+normal variable got changed but ui not updated.
+Counter making
+User info.displaying passing props as user obj info.
+Product list -> getting product as obj having name, and price
+todo list -> adding and deleting items in the todo.
+
+chapter - 4
+states,useState
+state and props difference
+why props are immutable obj?
+props are not changed in child component.
+only update using update func().
+forms,fromik
+lifting the state up
+useEffect
+
+class - 5
+types of useEffect
+React Routing and how it is different from Dom Routing
+Difference b/w browserRouter,Router and Route 
+template routes/Dynamic Routes
+flow of routes

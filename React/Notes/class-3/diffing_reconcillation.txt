@@ -1,0 +1,125 @@
+What is Reconciliation?
+
+Reconciliation is the process by which React updates 
+the UI when state or props change.
+
+In simple words:
+When something changes →
+React must decide:
+What changed?
+What stayed same?
+What to update in the real DOM?
+That entire decision-making process is called Reconciliation.
+
+What is Diffing?
+
+Diffing is a part of Reconciliation.
+Definition:
+Diffing is the algorithm React uses to compare 
+the old Virtual DOM with the new Virtual DOM 
+to find differences.
+React does NOT compare real DOMs.
+It compares:
+Old Virtual DOM
+vs
+New Virtual DOM
+That comparison process = Diffing.
+
+#### Full Flow of What Happens
+
+Let’s say you use useState:
+setCount(count + 1);
+
+Now internally:
+Step 1: State Update
+React marks component for re-render.
+
+Step 2: Re-render
+The component function runs again.
+
+Step 3: New Virtual DOM is created
+Now we have:
+Previous Virtual DOM
+New Virtual DOM
+
+Step 4: Diffing
+React compares both trees.
+
+Step 5: Reconciliation
+React updates ONLY the changed parts in the real DOM.
+
+
+
+### Important: How React Diffing Works Efficiently
+If React compared everything deeply, it would be slow.
+So React makes 2 important assumptions:
+Rule 1️⃣: Different Element Types → Replace Entire Tree
+Example:
+<div>
+   <h1>Hello</h1>
+</div>
+Becomes:
+<span>
+   <h1>Hello</h1>
+</span>
+Since div ≠ span, React destroys old tree and builds new one.
+
+Rule 2️⃣: Same Type → Update Only Changed Attributes
+Example:
+<h1 className="red">Hello</h1>
+Becomes:
+<h1 className="blue">Hello</h1>
+React:
+Keeps <h1>
+Only updates class
+Efficient ✅
+🔑 Special Case: Lists and Keys
+Example:
+{items.map(item => <li>{item}</li>)}
+Without key, React cannot properly track elements.
+With:
+{items.map(item => <li key={item.id}>{item.name}</li>)}
+Now React can:
+Track movement
+Avoid unnecessary re-renders
+Keys are critical for correct diffing.
+
+
+What Is Virtual DOM?
+
+Virtual DOM is:
+
+A lightweight JavaScript object
+
+Representation of the real DOM
+
+Stored in memory
+
+React never directly manipulates DOM immediately.
+It calculates changes first.
+
+🔬 What Makes React Fast?
+React does NOT optimize DOM.
+It optimizes:
+DOM calculations
+DOM updates
+Unnecessary re-renders
+Diffing complexity is:
+O(n)
+Instead of:
+O(n³) (naive tree comparison)
+That’s a massive improvement.
+
+Final Clear Difference
+Term	                    Meaning
+Diffing	            Comparing old and new Virtual DOM
+Reconciliation	    Full process of updating the UI
+Virtual DOM	        Lightweight copy of real DOM
+Fiber	            Internal engine handling reconciliation
+
+Reconciliation is the process React uses to 
+update the DOM efficiently when state or props 
+change. During reconciliation, React performs 
+diffing — an optimized comparison between the 
+previous and current virtual DOM trees — and 
+updates only the necessary parts of the real DOM.

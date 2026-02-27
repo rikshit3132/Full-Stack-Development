@@ -1,0 +1,35 @@
+#main_heading{
+    font-size: 2.5rem;
+    color: aquamarine;
+}
+.label1{
+    font-size: 1.5rem;
+    margin-right: 1rem;
+}
+#cel{
+height: 3rem;
+width: 6rem;
+text-align: center;
+font-family: 'Courier New', Courier, monospace;
+font-weight: bold;
+color: wheat;
+font-size: 2rem;
+border: 2px solid gold;
+border-radius: 0.4rem;
+}
+.fehDisplay{
+    font-size: 1.5rem;
+    color: plum;
+}
+.display{
+    font-size: 2.5rem;
+    color:snow;
+}
+.btn{
+    color: tomato;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    border: 3px solid greenyellow;
+    background-color: aliceblue;
+}

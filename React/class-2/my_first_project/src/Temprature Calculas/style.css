@@ -1,0 +1,32 @@
+.container {
+  text-align: center;
+}
+.cel {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+.convert {
+  display: block;
+  margin: 0 auto;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.heading{
+    font-family: 'Courier New', Courier, monospace;
+    color:chocolate;
+    font-weight: bold;
+}
+.label1{
+    font-size: 1.5rem;
+}
+#cel{
+    height: 3rem;
+    width: 5rem;
+}
+.input_label{
+    display: inline-block;
+    flex-direction: row;
+    text-align: center;
+}

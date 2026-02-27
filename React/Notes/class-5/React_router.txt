@@ -1,0 +1,114 @@
+===== What is React Router?====
+-->> React Router is a library that allows 
+navigation between components without reloading 
+the page.
+
+-->> In normal websites:
+-->> When you click a link → page reloads
+In React:
+-->> We want Single Page Application (SPA)
+-->> Only the component changes
+-->> Page does NOT reload
+
+
+=======What is <BrowserRouter>?===
+
+-->> Think of BrowserRouter as the manager of routing
+system.
+It:
+
+-->> Watches URL changes
+-->> Decides which component to show
+-->> Uses browser history API
+->> Where to put it?
+-->> Usually in main.jsx or index.js
+Example:
+
+import { BrowserRouter } from "react-router-dom";
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+);
+
+ -->> Wrap your entire app with it
+ -->> You use it ONLY ONCE
+
+========What is <Routes> and <Route>?========
+1) <Routes>
+-->> It is a container.
+-->> It looks at current URL and checks which 
+->> Route matches.
+
+2) <Route>
+
+It defines:
+-->> path
+-->> which component to show
+Example:
+<Routes>
+  <Route path="/" element={<Home />} />
+  <Route path="/about" element={<About />} />
+  <Route path="/contact" element={<Contact />} />
+</Routes>
+
+======== What is <Link>? ======
+
+-->> Link is used for navigation.
+
+->> Wrong way (reloads page):
+<a href="/about">About</a>
+
+-->> Correct way:
+<Link to="/about">About</Link>
+-->> It changes URL without refreshing page.
+
+
+Full Flow (Very Important 🚀)
+
+Let’s say you open:
+
+http://localhost:5173/about
+Step 1:
+
+BrowserRouter sees URL is /about
+
+Step 2:
+
+It goes inside <Routes>
+
+Step 3:
+
+It checks all <Route> paths
+
+Step 4:
+
+It finds:
+
+path="/about"
+Step 5:
+
+It renders:
+
+<About />
+
+Navbar stays because it is outside Routes.
+
+
+WHY Navbar Outside Routes?
+
+Because:
+
+<Navbar />
+<Routes>...</Routes>
+
+Means:
+
+Navbar → always visible
+Routes → changes based on URL
+
+If you put Navbar inside Route:
+
+<Route path="/" element={<Navbar />} />
+
+Then it will only show on /
