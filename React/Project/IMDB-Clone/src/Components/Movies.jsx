@@ -1,60 +1,93 @@
-import React, { useState } from "react";
-import movie1 from "../assets/img/movie1.jpg";
-const Movies = () => {
-    const[pageNo,setPageNo] = useState(1);
-  const [movies, setMovies] = useState([
-    {
-      url: `${movie1}`,
-      title: "Movie-1",
-    },
-    {
-      url: `${movie1}`,
-      title: "Movie-2",
-    },
-    {
-      url: `${movie1}`,
-      title: "Movie-3",
-    },
-    {
-      url: `${movie1}`,
-      title: "Movie-4",
-    },
-    {
-      url: `${movie1}`,
-      title: "Movie-5",
-    },
-  ]);
-  const handleNext = ()=>{
+import React, { useEffect, useState } from "react";
+
+import axios from "axios";
+const Movies = ({watchlist,setWatchList}) => {
+  const [pageNo, setPageNo] = useState(1);
+  const [movies,setMovies] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`https://api.themoviedb.org/3/trending/movie/day?page=${pageNo}`, {
+        headers: {
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiNmQ4ZGIyNzgzNjg5MGFkOWZjMjNhMjhiYzhhMmU3MyIsIm5iZiI6MTc1MjU5OTE5My45MTIsInN1YiI6IjY4NzY4YTk5YzVkZDk3ZmQ2ZGE3YjMxYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Wa_mUt085wsYAV6Nu_CG0TYdSvFoRL9n4oTWa9OvW7A",
+        },
+      })
+      .then((data) => {
+        console.log(data);
+        setMovies(data.data.results);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  },[pageNo]);
+
+  const handleNext = () => {
     setPageNo(pageNo + 1);
-  }
-  const handlePrev = ()=>{
-    if(pageNo <= 1){
-        return;
+  };
+  const handlePrev = () => {
+    if (pageNo <= 1) {
+      return;
     }
- setPageNo(pageNo - 1);
+    setPageNo(pageNo - 1);
+  };
+  const addMovieWatchList = (movie)=>{
+    setWatchList((prev) => [...prev,movie])
+  } 
+  const deleteMovieWatchList = (movieName) => {
+    const filered = watchlist.filter((movie) => movie.id != movieName.id);
+    setWatchList(filered);
+  }; 
+  const doesContain = (movieName) =>{
+    return watchlist.some((movie) => movie.id === movieName.id);
   }
   return (
     <>
-      <div className="text-4xl text-center font-bold m-5">
+      <div className=" text-4xl text-center font-bold tracking-widest m-5">
         <h1>Trending Movies</h1>
       </div>
-      <div className="flex justify-evenly gap-7 m-3  ">
-        {movies.map((movie) => (
-          <div
-            class="flex w-full border-2 text-pink-400 font-bold text-2xl rounded-2xl h-[60vh] bg-[url('/image.jpg')] bg-cover bg-center items-center justify-center "
-            style={{ backgroundImage: `url(${movie1})` }}
-          >
-            <div>{movie.title}</div>
-          </div>
-        ))}
+      <div className="flex flex-wrap justify-evenly gap-8 text-center ">
+        {movies.map((movie) => {
+          const isAdded = doesContain(movie);
+          console.log(isAdded);
+          return (
+            <div
+              className="flex  flex-col h-[40vh] w-[250px] border-2 font-semibold  text-white  text-2xl rounded-4xl h-[60vh] bg-cover bg-center justify-between border-blue-400"
+              style={{
+                backgroundImage: `url(https://image.tmdb.org/t/p/w500${movie.backdrop_path})`,
+              }}
+            >
+              {isAdded ? (
+                <div
+                  className="hover:cursor-pointer "
+                  onClick={() => deleteMovieWatchList(movie)}
+                >
+                  ❌
+                </div>
+              ) : (
+                <div
+                  className="hover:cursor-pointer"
+                  onClick={() => addMovieWatchList(movie)}
+                >
+                  😍
+                </div>
+              )}
+
+              <div>{movie.title}</div>
+            </div>
+          );
+        })}
       </div>
-      <div className="bg-gray-500 text-white p-4 mt-8 h-[50px] flex justify-center gap-3">
-        <div onClick={handlePrev}>
-          <i onClick={handlePrev} class="fa-solid fa-arrow-left text-white"></i>
+      <div className="bg-gray-500  p-1 mt-2 mb-4 h-[50px] flex justify-center gap-3 font-bold text-white text-3xl border-2 border-amber-200">
+        <div onClick={handlePrev} className="text-3xl text-center">
+          <i
+            onClick={handlePrev}
+            className="fa-solid fa-arrow-left text-blue-600 "
+          ></i>
         </div>
         {pageNo}
-        <div onClick={handleNext}>
-          <i class="fa-solid fa-arrow-right text-white"></i>
+        <div onClick={handleNext} className="text-3xl text-center">
+          <i className="fa-solid fa-arrow-right text-blue-600 "></i>
         </div>
       </div>
     </>
