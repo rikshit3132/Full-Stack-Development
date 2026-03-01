@@ -60,3 +60,12 @@ React Routing and how it is different from Dom Routing
 Difference b/w browserRouter,Router and Route 
 template routes/Dynamic Routes
 flow of routes
+
+class- 6
+Routes and use of it
+IMDb clone making start
+Used Routing for imdb clone
+made several components
+WatchList,NavBar,Movies etc..
+made banner,Movies boxes with static array data
+pagination arrows left and right
