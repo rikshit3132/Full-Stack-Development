@@ -25,26 +25,25 @@ const Banner = () => {
         class=" flex w-full mt-4 h-[80vh] font-bold tracking-widest  bg-cover bg-center items-center justify-between text-center border-3 rounded-4xl border-blue-400"
         style={{
           backgroundImage: `url(https://image.tmdb.org/t/p/original${
-            movies[2]?.backdrop_path
+            movies[13]?.backdrop_path
           })`,
         }}
       >
-        
-          {/* Left Arrow */}
-          <div className="text-8xl cursor-pointer">
-            <i className="fa-solid fa-arrow-left text-white"></i>
-          </div>
-
-          {/* Title */}
-          <div className="text-white text-2xl font-bold text-center">
-            Movie Text
-          </div>
-
-          {/* Right Arrow */}
-          <div className="text-8xl cursor-pointer">
-            <i className="fa-solid fa-arrow-right text-white"></i>
-          </div>
+        {/* Left Arrow */}
+        <div className="text-8xl cursor-pointer">
+          <i className="fa-solid fa-arrow-left text-white"></i>
         </div>
+
+        {/* Title */}
+        <div className="text-white text-2xl font-bold text-center">
+          {movies[13]?.original_title}
+        </div>
+
+        {/* Right Arrow */}
+        <div className="text-8xl cursor-pointer">
+          <i className="fa-solid fa-arrow-right text-white"></i>
+        </div>
+      </div>
     </>
   );
 }
