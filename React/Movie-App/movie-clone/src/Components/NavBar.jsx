@@ -1,14 +1,40 @@
 import React from 'react'
-import {Link} from "react-router-dom"
+import {NavLink} from "react-router-dom"
+import logo from "../assets/logo.webp"
 const NavBar = () => {
   return (
     <nav>
-      <ul>
+      <ul className="flex space-x-8 items-center pl-3 py-4">
         <li>
-          <Link to="/home">Home</Link>
+          <NavLink to="/" className="text-3xl font-bold text-blue-500 ">
+            <img className="w-[50px]" src={logo} />
+          </NavLink>
         </li>
         <li>
-          <Link to="./watchlist">WatchList</Link>
+          <NavLink
+            to="/home"
+            className="text-3xl font-bold text-blue-500"
+            style={({ isActive }) => {
+              return {
+                textDecoration: isActive ? "underline" : "none",
+              };
+            }}
+          >
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="./watchlist"
+            className="text-3xl font-bold text-blue-500 "
+            style={({ isActive }) => {
+              return {
+                textDecoration: isActive ? "underline" : "none",
+              };
+            }}
+          >
+            WatchList
+          </NavLink>
         </li>
       </ul>
     </nav>
