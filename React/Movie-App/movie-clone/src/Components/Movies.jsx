@@ -3,11 +3,16 @@ import Pagination from "./Pagination";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Spinner from "./Spinner";
+import MovieList from "./MovieList";
+import MovieInfo from "./MovieInfo";
+
 const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [loader, setLoader] = useState(false);
   const [pageNo, setPageNo] = useState(1);
   const[watchList,setWatchList] = useState([]);
+  const[openModel,setOpenModel] = useState(false);
+  const[selectedMovie,setSelectedMovie] = useState(null);
   const handlePre = () => {
     setPageNo((prevPage) => {
       if (prevPage === 1) {
@@ -34,15 +39,7 @@ localStorage.setItem("watchListMovies",JSON.stringify(watchList));
       console.log(response);
       const movieData = response?.data?.results;
       // console.log(movieData)
-      setMovies(
-        movieData.map((movie) => ({
-          id: movie?.id,
-          title: movie?.title,
-          bannerImage: `https://image.tmdb.org/t/p/original/${
-            movie?.backdrop_path
-          }`,
-        })),
-      );
+     setMovies(movieData);
       setLoader(false);
     });
   }, [pageNo]);
@@ -68,6 +65,14 @@ localStorage.setItem("watchListMovies",JSON.stringify(watchList));
         return filteredWatchList;
     })
    };
+   const handleOpenModel = (movie) => {
+    setSelectedMovie(movie);
+    setOpenModel(true);
+   }
+   const handleCloseModal = () =>{
+    setSelectedMovie(null);
+    setOpenModel(false);
+   }
   return (
     <>
       {loader ? (
@@ -77,50 +82,24 @@ localStorage.setItem("watchListMovies",JSON.stringify(watchList));
           <div className="text-3xl font-bold text-center m-8 mt-0 pt-10 ">
             Trending Movies
           </div>
-
-          <div className="flex flex-wrap justify-evenly gap-6">
-            {movies.length > 0 &&
-              movies.map((movie) => {
-                return (
-                  <div className="w-[280px] items-start" key={movie.id}>
-                    <div
-                      className="h-[400px] relative rounded-3xl border-2 border-blue-500 bg-cover bg-center flex items-end  shadow-lg hover:scale-105 hover:border-amber-300 transition-all duration-300"
-                      style={{
-                        backgroundImage: `url(https://image.tmdb.org/t/p/w500${movie.bannerImage})`,
-                      }}
-                    >
-                      <div className="absolute top-1 left-1/2 -translate-x-1/2 flex flex-col gap-2 text-2xl">
-                        {checkMoviePresent(movie) ? (
-                          <div
-                            onClick={() => removeFromWatchList(movie)}
-                            className="cursor-pointer flex justify-center items-center text-3xl"
-                          >
-                            ❌
-                          </div>
-                        ) : (
-                          <div
-                            onClick={() => addToWatchList(movie)}
-                            className="cursor-pointer flex justify-center items-center text-3xl"
-                          >
-                            😍
-                          </div>
-                        )}
-                      </div>
-
-                      <div className="text-white w-full text-center rounded-3xl border-2 border-blue-500 hover:border-amber-300 text-lg p-3 bg-black/60">
-                        {movie.title}
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-          </div>
-
+          <MovieList
+            movies={movies}
+            checkMoviePresent={checkMoviePresent}
+            addToWatchList={addToWatchList}
+            removeFromWatchList={removeFromWatchList}
+            handleOpenModel={handleOpenModel}
+          />
           <Pagination
             pageNo={pageNo}
             handleNext={handleNext}
             handlePre={handlePre}
           />
+          {openModel && selectedMovie && (
+            <div className="fixed inset-0 z-50 overflow-y-auto backdrop-blur-sm bg-black/50 flex justify-center items-center h-screen">
+              <MovieInfo handleCloseModal={handleCloseModal} movie ={selectedMovie}/>
+              
+            </div>
+          )}
         </div>
       )}
     </>

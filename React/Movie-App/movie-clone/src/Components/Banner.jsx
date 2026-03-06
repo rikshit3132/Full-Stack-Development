@@ -20,7 +20,7 @@ axios.get(url).then((response) =>{
           movieData.map((movie) => ({
             title: movie?.title,
             bannerImage: `https://image.tmdb.org/t/p/original/${
-              movie?.backdrop_path
+              movie?.poster_path
             }`,
           })),
         );
