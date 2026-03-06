@@ -10,11 +10,11 @@ const MovieInfo = ({ handleCloseModal, movie }) => {
     const fetchTrailer = async () => {
       try {
         setLoader(true);
-        const data = await axios.get(
+        const response = await axios.get(
           `https://api.themoviedb.org/3/movie/${id}/videos?api_key=b6d8db27836890ad9fc23a28bc8a2e73`,
         );
       
-        const trailer = data?.data?.results?.find(
+        const trailer = response?.data?.results?.find(
           (video) => video.type === "Trailer" && video.site === "YouTube",
         );
         if(trailer){
