@@ -1,19 +1,19 @@
 import React from 'react'
 import { useState,useEffect } from 'react';
-import img from "../assets/background.jpg"
+
 import { motion } from "framer-motion";
-const Display = ({weather}) => {
-const [cityTime, setCityTime] = useState(new Date());
-console.log(weather)
-useEffect(() => {
-  if (!weather) return;
+const Display = ({ weather }) => {
+  const [cityTime, setCityTime] = useState(new Date());
+  console.log(weather);
+  useEffect(() => {
+    if (!weather) return;
 
-  const utc = new Date().getTime() + new Date().getTimezoneOffset() * 60000;
+    const utc = new Date().getTime() + new Date().getTimezoneOffset() * 60000;
 
-  const localTime = new Date(utc + weather.timezone * 1000);
+    const localTime = new Date(utc + weather.timezone * 1000);
 
-  setCityTime(localTime);
-}, [weather]);
+    setCityTime(localTime);
+  }, [weather]);
   const currentDate = cityTime.toLocaleDateString("en-IN", {
     weekday: "long",
     year: "numeric",
@@ -49,7 +49,7 @@ useEffect(() => {
                   shadow-2xl w-[900px] text-center text-white"
         >
           <h1 className="text-5xl font-bold mb-4">
-            {weather && weather?.name}, {weather && weather?.sys?.country}
+            {weather.customCity || weather.name}
           </h1>
 
           <p className="text-2xl  mb-2 text-red-300">{currentDate}</p>
@@ -59,6 +59,6 @@ useEffect(() => {
       </div>
     </>
   );
-}
+};
 
 export default Display

@@ -1,6 +1,17 @@
 import React from "react";
 import { motion } from "framer-motion";
-
+import clear from "../assets/Weather-Images/clear.jpg"
+import rain from "../assets/Weather-Images/rainy.jpg";
+import snow from "../assets/Weather-Images/snowy.jpg";
+import cloud from "../assets/Weather-Images/cloudy.jpg";
+import thunder from "../assets/Weather-Images/thunder.jpg"
+import drizzle from "../assets/Weather-Images/drizzle.jpg";
+import mist from "../assets/Weather-Images/mist.jpg";
+import dust from "../assets/Weather-Images/dust.jpg";
+import sand from "../assets/Weather-Images/sand.jpg";
+import haze from "../assets/Weather-Images/haze.jpg";
+import smoke from "../assets/Weather-Images/smoke.jpg";
+import fog from "../assets/Weather-Images/fog.jpg"
 const WeatherDisplay = ({ airQuality,weather }) => {
   if (!weather) return null;
 
@@ -67,11 +78,64 @@ const WeatherDisplay = ({ airQuality,weather }) => {
     }
   };
   const aqi = airQuality?.list?.[0]?.main?.aqi;
-
+  const weatherImages = {
+    Clear: clear,
+    Rain: rain,
+    Clouds: cloud,
+    Snow: snow,
+    Thunderstorm: thunder,
+    Mist: mist,
+    Drizzle: drizzle,
+    Dust:dust,
+    Smoke: smoke,
+    Sand:sand,
+    Haze:haze,
+    Fog:fog
+  };
   return (
     <>
+      <motion.div
+        initial={{ opacity: 0, y: -40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="w-full h-[340px] relative rounded-xl overflow-hidden"
+      >
+        {/* Banner Image */}
+        <img
+          src={weatherImages[weather?.weather?.[0]?.main]}
+          alt="weather banner"
+          className="w-full h-full object-cover"
+        />
+
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/40"></div>
+
+        {/* Content */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
+          <h1 className=" text-gray-100  text-3xl font-semibold tracking-wide mb-8">
+            {weather.customCity || weather.name}
+          </h1>
+
+          <h1 className="text-white text-5xl drop-shadow-lg font-bold tracking-wide">
+            {Math.round(weather.main.temp)}°C
+          </h1>
+
+          <img
+            src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
+            className="w-16"
+          />
+
+          <p className="text-sky-300 text-xl capitalize font-medium">
+            {weather.weather[0].description}
+          </p>
+
+          <p className="text-gray-300 text-sm mt-1">
+            Feels like {Math.round(weather.main.feels_like)}°C
+          </p>
+        </div>
+      </motion.div>
       <div>
-        <h1 className="text-white text-center mb-5 text-4xl">
+        <h1 className="text-white text-center mb-5 mt-10 text-4xl">
           🌍 Weather Details
         </h1>
       </div>
@@ -83,7 +147,7 @@ const WeatherDisplay = ({ airQuality,weather }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
           whileHover={{ scale: 1.05 }}
-          className="bg-slate-800/60 backdrop-blur-md border border-blue-400 rounded-2xl p-6 text-white shadow-xl mt-10"
+          className="hover:scale-105 hover:shadow-xl transition duration-300 bg-slate-800/60 backdrop-blur-md border border-blue-400 rounded-2xl p-6 text-white shadow-xl mt-10"
         >
           <h2 className="text-3xl font-semibold mb-4 text-blue-400">
             📍 Positions
@@ -172,9 +236,7 @@ const WeatherDisplay = ({ airQuality,weather }) => {
           whileHover={{ scale: 1.05 }}
           className="bg-slate-800/60 mt-10 backdrop-blur-md border border-red-400 rounded-2xl p-6 text-white shadow-xl"
         >
-          <h2 className="text-3xl font-semibold mb-4 text-red-400">
-            🌡 Temperature
-          </h2>
+          <h2 className="text-3xl font-semibold mb-4 text-red-400">🌡 Temp.</h2>
           <p className="text-xl">
             Temp: <span className="text-red-400">{temp}°C</span>
           </p>

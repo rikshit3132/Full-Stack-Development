@@ -52,7 +52,7 @@ const Home = () => {
   return (
     <div>
       {/* WHITE SECTION */}
-      <div className="min-h-screen bg-gradient-to-b from-sky-100 to-sky-300">
+      <div className="min-h-screen pt-20 bg-gradient-to-b from-sky-100 to-sky-300 border-2 border-slate-300 rounded-2xl">
         <div className="text-center font-extrabold text-5xl text-slate-900  pt-12">
           🌦️🌤️ Weather <span className="text-blue-400">Predictor 🌧️☔︎︎</span>
         </div>
@@ -60,6 +60,7 @@ const Home = () => {
         <div className="py-16">
           <SearchBar
             setWeather={setWeather}
+            setAirQuality={setAirQuality}
             fetchWeatherByCoords={fetchWeatherByCoords}
             setLoading={setLoading}
           />
@@ -73,11 +74,11 @@ const Home = () => {
         </div>
       ) : (
         <>
-          <div className="bg-black py-10">
+          <div className="bg-black py-10 ">
             {weather && <Display weather={weather} />}
           </div>
 
-          <div className="bg-black py-10">
+          <div className="bg-black py-10 ">
             {weather && (
               <WeatherDisplay airQuality={airQuality} weather={weather} />
             )}

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Search } from "lucide-react";
 
-const SearchBar = ({ setWeather, fetchWeatherByCoords, setLoading }) => {
+const SearchBar = ({ setWeather,setAirQuality, fetchWeatherByCoords, setLoading }) => {
   const [city, setCity] = useState("");
   const [useCurrentLocation, setUseCurrentLocation] = useState(false);
   const [suggestions, setSuggestions] = useState([]);
@@ -18,7 +18,7 @@ const SearchBar = ({ setWeather, fetchWeatherByCoords, setLoading }) => {
 
     try {
       const res = await fetch(
-        `https://api.openweathermap.org/geo/1.0/direct?q=${value}&limit=5&appid=${apiKey}`,
+        `https://api.openweathermap.org/geo/1.0/direct?q=${value}&limit=10&appid=${apiKey}`,
       );
       const data = await res.json();
       setSuggestions(data);
@@ -37,7 +37,9 @@ const SearchBar = ({ setWeather, fetchWeatherByCoords, setLoading }) => {
 
   // 🔹 When clicking suggestion
   const handleSelectSuggestion = async (item) => {
-    setCity(item.name);
+    const fullCity = `${item.name}${item.state ? `, ${item.state}` : ""}, ${item.country}`;
+
+    setCity(fullCity);
     setShowSuggestions(false);
     setLoading(true);
 
@@ -45,18 +47,26 @@ const SearchBar = ({ setWeather, fetchWeatherByCoords, setLoading }) => {
       const res = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?lat=${item.lat}&lon=${item.lon}&appid=${apiKey}&units=metric`,
       );
+
       const data = await res.json();
-      setWeather(data);
+      setWeather({ ...data, customCity: fullCity });
+      setCity(""); // clears input
+      setSuggestions([]);
+      const airRes = await fetch(
+        `https://api.openweathermap.org/data/2.5/air_pollution?lat=${item.lat}&lon=${item.lon}&appid=${apiKey}`,
+      );
+
+      const airData = await airRes.json();
+      setAirQuality(airData);
     } catch (err) {
       console.error("Weather fetch error:", err);
     } finally {
       setLoading(false);
     }
   };
-
   // 🔹 Fetch by city manually (Search button)
   const fetchWeatherByCity = async () => {
-    if (!city) {
+    if (!city.trim()) {
       alert("Please enter a city!");
       return;
     }
@@ -71,6 +81,12 @@ const SearchBar = ({ setWeather, fetchWeatherByCoords, setLoading }) => {
       if (!res.ok) throw new Error("City not found");
 
       setWeather(data);
+       const airRes = await fetch(
+         `https://api.openweathermap.org/data/2.5/air_pollution?lat=${data.coord.lat}&lon=${data.coord.lon}&appid=${apiKey}`,
+       );
+
+       const airData = await airRes.json();
+       setAirQuality(airData);
       setSuggestions([]);
       setShowSuggestions(false);
     } catch (err) {
@@ -140,7 +156,7 @@ const SearchBar = ({ setWeather, fetchWeatherByCoords, setLoading }) => {
 
           {/* 🔹 Suggestions Dropdown */}
           {showSuggestions && suggestions.length > 0 && (
-            <div className="absolute top-full mt-2 w-full bg-blue-300 rounded-3xl shadow-lg z-50 max-h-60 overflow-y-auto">
+            <div className="absolute w-full bg-slate-800 text-white shadow-xl rounded-2xl mt-3 top-full z-50 max-h-60 overflow-y-auto">
               {suggestions.map((item, index) => (
                 <div
                   key={index}
@@ -170,6 +186,7 @@ const SearchBar = ({ setWeather, fetchWeatherByCoords, setLoading }) => {
          hover:scale-105
          hover:shadow-xl
          hover:bg-red-500
+         cursor-pointer
         "
       >
         Search
