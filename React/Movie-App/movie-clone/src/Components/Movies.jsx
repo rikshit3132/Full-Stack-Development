@@ -74,11 +74,11 @@ localStorage.setItem("watchListMovies",JSON.stringify(watchList));
         <Spinner />
       ) : (
         <div className="bg-slate-700">
-          <div className="text-3xl font-bold text-center m-8 mt-0">
+          <div className="text-3xl font-bold text-center m-8 mt-0 pt-10 ">
             Trending Movies
           </div>
 
-          <div className="flex flex-wrap justify-center gap-6">
+          <div className="flex flex-wrap justify-evenly gap-6">
             {movies.length > 0 &&
               movies.map((movie) => {
                 return (
