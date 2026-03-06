@@ -75,6 +75,9 @@ React-4
 single page application vs multi page application
 server side rendering vs client side rendering
 search engine optimisation in spa and mpa
+client side pagination vs server side 
+pull whole data and manage range -->> client side
+pull data by page -->> server side -->> optimize 
 Routers in react or react router dom
 lazy loads in react
 useParams and useSearchParams
@@ -88,4 +91,3 @@ used lucide icons:- https://lucide.dev/icons/
 used axios to fetch data from tmdb api:-
  https://developer.themoviedb.org/docs/getting-started
  worked on spinner -->> used when data is fetched
- 
