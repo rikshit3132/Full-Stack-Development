@@ -33,7 +33,7 @@ const NavBar = () => {
           }
           to="/about"
         >
-          About Us
+          About Me
         </NavLink>
         <NavLink
           className={({ isActive }) =>
