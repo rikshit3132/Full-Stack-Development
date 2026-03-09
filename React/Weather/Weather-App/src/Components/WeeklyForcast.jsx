@@ -57,7 +57,7 @@ const WeeklyForecast = ({ data, getWeatherIcon, weatherBackgrounds }) => {
             const todayCard = isToday(item?.date);
             const condition = item.condition;
              const bgImage =
-               weatherBackgrounds[condition] || weatherBackgrounds.clear;
+               weatherBackgrounds[condition] || weatherBackgrounds.Clear;
             return (
               <div
                 key={index}

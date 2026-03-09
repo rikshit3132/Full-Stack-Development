@@ -75,7 +75,8 @@ const HourlyForcast = ({ data, weatherBackgrounds }) => {
             const condition = item?.weather[0]?.main;
             const period = getTimePeriod(item?.dt_txt);
             const colorClass = getCardColor(index);
-            const bgImage = weatherBackgrounds[condition] || weatherBackgrounds.clear;
+            const bgImage =
+              weatherBackgrounds[condition] || weatherBackgrounds.Clear;
             return (
               <div
                 key={index}
