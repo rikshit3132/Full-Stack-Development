@@ -91,3 +91,12 @@ used lucide icons:- https://lucide.dev/icons/
 used axios to fetch data from tmdb api:-
  https://developer.themoviedb.org/docs/getting-started
  worked on spinner -->> used when data is fetched
+
+
+React-6
+Adding icons in movie card favourite and cross 
+persist the movie data in movieList
+Using local Storage to persist data in the browser
+watch list component making 
+search by movie name thing in WatchList and sorting by ratings
+movieInfo component added trailer and all
