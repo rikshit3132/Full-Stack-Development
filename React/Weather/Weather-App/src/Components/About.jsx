@@ -1,5 +1,12 @@
 import React from "react";
-import { CloudSun, MapPin, Clock, Sunrise } from "lucide-react";
+import {
+  CloudSun,
+  MapPin,
+  Clock,
+  Sunrise,
+  BellRing,
+  CalendarDays,
+} from "lucide-react";
 
 const About = () => {
   return (
@@ -10,18 +17,20 @@ const About = () => {
           <CloudSun size={40} className="mx-auto mb-3" />
           <h1 className="text-3xl font-bold">Weather Predictor</h1>
           <p className="text-sm opacity-90 mt-2">
-            A modern weather forecasting app built with React
+            A modern weather forecasting application built with React and
+            Tailwind CSS
           </p>
         </div>
 
         {/* Content */}
         <div className="p-8">
           <p className="text-gray-600 text-center max-w-2xl mx-auto">
-            Weather Predictor helps users quickly check real-time weather
-            conditions for cities around the world. You can search by city name
-            or use your current location to view temperature, weather
-            conditions, and important daily information like sunrise and sunset
-            times.
+            Weather Predictor is a modern weather forecasting application that
+            provides accurate and easy-to-understand weather information. Users
+            can search weather by city name or use their current location to
+            view detailed weather data including hourly forecasts, weekly
+            forecasts, sunrise and sunset timings, and important government
+            weather alerts.
           </p>
 
           {/* Features */}
@@ -29,9 +38,10 @@ const About = () => {
             <div className="flex items-start gap-4 p-4 bg-slate-50 rounded-xl hover:shadow-md transition">
               <MapPin className="text-sky-500" />
               <div>
-                <h3 className="font-semibold">City Search</h3>
+                <h3 className="font-semibold">City & Location Search</h3>
                 <p className="text-sm text-gray-600">
-                  Search weather for any city around the world.
+                  Search weather for any city worldwide or use your current
+                  location.
                 </p>
               </div>
             </div>
@@ -39,19 +49,19 @@ const About = () => {
             <div className="flex items-start gap-4 p-4 bg-slate-50 rounded-xl hover:shadow-md transition">
               <Clock className="text-sky-500" />
               <div>
-                <h3 className="font-semibold">Local Time</h3>
+                <h3 className="font-semibold">3-Hour Forecast</h3>
                 <p className="text-sm text-gray-600">
-                  Displays local time of the selected city.
+                  Get detailed weather predictions for every 3 hours.
                 </p>
               </div>
             </div>
 
             <div className="flex items-start gap-4 p-4 bg-slate-50 rounded-xl hover:shadow-md transition">
-              <CloudSun className="text-sky-500" />
+              <CalendarDays className="text-sky-500" />
               <div>
-                <h3 className="font-semibold">Live Weather</h3>
+                <h3 className="font-semibold">5-Day Forecast</h3>
                 <p className="text-sm text-gray-600">
-                  Shows real-time temperature and conditions.
+                  View weather predictions for the upcoming five days.
                 </p>
               </div>
             </div>
@@ -61,7 +71,29 @@ const About = () => {
               <div>
                 <h3 className="font-semibold">Sunrise & Sunset</h3>
                 <p className="text-sm text-gray-600">
-                  Track daily sunrise and sunset timings.
+                  Track daily sunrise and sunset timings for your location.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4 p-4 bg-slate-50 rounded-xl hover:shadow-md transition">
+              <BellRing className="text-sky-500" />
+              <div>
+                <h3 className="font-semibold">Government Weather Alerts</h3>
+                <p className="text-sm text-gray-600">
+                  Receive important weather notifications and alerts issued by
+                  authorities.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4 p-4 bg-slate-50 rounded-xl hover:shadow-md transition">
+              <CloudSun className="text-sky-500" />
+              <div>
+                <h3 className="font-semibold">Real-Time Weather</h3>
+                <p className="text-sm text-gray-600">
+                  View live temperature, weather conditions, and environment
+                  details.
                 </p>
               </div>
             </div>
@@ -69,7 +101,8 @@ const About = () => {
 
           {/* Footer */}
           <div className="text-center mt-10 text-gray-500 text-sm">
-            Built using React, Tailwind CSS and Weather API.
+            Built using React, Tailwind CSS, and Weather API to deliver fast and
+            accurate weather insights.
           </div>
         </div>
       </div>

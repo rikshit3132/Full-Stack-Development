@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import SearchBar from "./SearchBar";
 import Display from "./Display";
 import WeatherDisplay from "./WeatherDisplay";
+import WeeklyForcast from "./WeeklyForcast";
+import HourlyForcast from "./HourlyForcast";
+import ApiCall from "../Service/ApiCall";
 
 const Home = () => {
   const [weather, setWeather] = useState(null);
@@ -53,8 +56,23 @@ const Home = () => {
     <div>
       {/* WHITE SECTION */}
       <div className="min-h-screen pt-20 bg-gradient-to-b from-sky-100 to-sky-300 border-2 border-slate-300 rounded-2xl">
+        <div className="bg-red-600 text-white text-center py-3 font-semibold animate-pulse">
+          ⚠️ Govts. Guidelines about weather conditions... Incomplete!!
+        </div>
+
         <div className="text-center font-extrabold text-5xl text-slate-900  pt-12">
-          🌦️🌤️ Weather <span className="text-blue-400">Predictor 🌧️☔︎︎</span>
+          <span className="animate-bounce inline-block animate-bounce [animation-duration:2s]">
+            {" "}
+            🌦️🌤️
+          </span>{" "}
+          Weather{" "}
+          <span className="text-blue-400">
+            Predictor{" "}
+            <span className="animate-bounce animate-bounce [animation-duration:2s] inline-block">
+              🌧️☔︎
+            </span>
+            ︎
+          </span>
         </div>
 
         <div className="py-16">
@@ -81,6 +99,11 @@ const Home = () => {
           <div className="bg-black py-10 ">
             {weather && (
               <WeatherDisplay airQuality={airQuality} weather={weather} />
+            )}
+          </div>
+          <div>
+            {weather && (
+              <ApiCall lat={weather?.coord?.lat} lon={weather?.coord?.lon} />
             )}
           </div>
         </>

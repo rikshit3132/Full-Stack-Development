@@ -45,7 +45,7 @@ const NavBar = () => {
           }
           to="/contact"
         >
-          Contact Us
+          Contact Me
         </NavLink>
       </div>
       <div className="flex items-center gap-6 mr-20 text-2xl text-white hover:text-yellow-400 transition duration-300">

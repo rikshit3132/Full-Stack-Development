@@ -1,6 +1,5 @@
 import React from 'react'
 import { useState,useEffect } from 'react';
-
 import { motion } from "framer-motion";
 const Display = ({ weather }) => {
   const [cityTime, setCityTime] = useState(new Date());
@@ -48,9 +47,10 @@ const Display = ({ weather }) => {
                   rounded-3xl p-12 
                   shadow-2xl w-[900px] text-center text-white"
         >
-          <h1 className="text-5xl font-bold mb-4">
+          <h1 className="text-5xl font-bold mb-4 text-blue-300">
             {weather.customCity || weather.name}
           </h1>
+          <h3 className="text-2xl font-bold mb-4">Today</h3>
 
           <p className="text-2xl  mb-2 text-red-300">{currentDate}</p>
 
