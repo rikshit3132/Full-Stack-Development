@@ -86,7 +86,7 @@ const HourlyForcast = ({ data, weatherBackgrounds }) => {
                   backgroundPosition: "center",
                   animationDelay: `${index * 0.1}s`,
                 }}
-                className={`flex flex-col items-center h-80 min-w-[300px]
+                className={`flex flex-col items-center h-80 min-w-[220px]
 bg-slate-800/60 backdrop-blur-md border
 p-5 rounded-2xl shadow-xl text-white
 hover:scale-105 hover:shadow-2xl

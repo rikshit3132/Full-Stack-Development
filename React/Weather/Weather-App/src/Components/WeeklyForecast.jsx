@@ -1,7 +1,8 @@
 import React from "react";
 
 const WeeklyForecast = ({ data, getWeatherIcon, weatherBackgrounds }) => {
-  const getDay = (dateTime) => {
+  console.log("Weekly component rendered", data);
+    const getDay = (dateTime) => {
     const date = new Date(dateTime);
     return date.toLocaleDateString("en-US", { weekday: "long" });
   };
@@ -37,13 +38,16 @@ const WeeklyForecast = ({ data, getWeatherIcon, weatherBackgrounds }) => {
     minTemp: Math.min(...day.temps),
     maxTemp: Math.max(...day.temps),
   }));
+  console.log("Daily Data:", dailyData);
   const isToday = (dateTime) => {
     const today = new Date().toDateString();
     const cardDate = new Date(dateTime).toDateString();
 
     return today === cardDate;
   };
-
+if(!dailyData){
+  return <div>DailyData not exist</div>
+}
   return (
     <div className="bg-gradient-to-b from-black via-slate-900 to-black py-16">
       <h1 className="text-center text-4xl font-bold text-sky-400 mb-12">
@@ -56,8 +60,8 @@ const WeeklyForecast = ({ data, getWeatherIcon, weatherBackgrounds }) => {
             const colorClass = getCardColor(index);
             const todayCard = isToday(item?.date);
             const condition = item.condition;
-             const bgImage =
-               weatherBackgrounds[condition] || weatherBackgrounds.Clear;
+            const bgImage =
+              weatherBackgrounds[condition] || weatherBackgrounds.Clear;
             return (
               <div
                 key={index}
@@ -67,7 +71,6 @@ const WeeklyForecast = ({ data, getWeatherIcon, weatherBackgrounds }) => {
                   backgroundPosition: "center",
                   animationDelay: `${index * 0.1}s`,
                 }}
-                
                 className={`flex flex-col items-center h-80 min-w-[220px]
 bg-slate-800/60 backdrop-blur-md
 border rounded-xl shadow-lg
@@ -76,7 +79,7 @@ hover:scale-105 hover:-translate-y-3 hover:shadow-2xl hover:shadow-sky-400/30
 transition-all duration-300
 
 ${colorClass}
-${todayCard ? "border border-yellow-400 shadow-yellow-400/50 shadow-xl" : ""}`}
+${todayCard ? "border border-sky-400 shadow-sky-400/50 shadow-xl" : "shadow-sky-400/50"}`}
               >
                 {todayCard && (
                   <span className="text-1xl text-green-400 px-2 py-1 rounded-full mb-2">
@@ -106,7 +109,9 @@ ${todayCard ? "border border-yellow-400 shadow-yellow-400/50 shadow-xl" : ""}`}
                 </div>
 
                 {/* Condition */}
-                <div className="text-2xl text-gray-300 mt-2">{item.condition}</div>
+                <div className={`text-2xl text-gray-300 mt-2 ${colorClass}`}>
+                  {item.condition}
+                </div>
 
                 {/* Rain Probability */}
                 <div className="text-blue-300 text-lg mt-3">
