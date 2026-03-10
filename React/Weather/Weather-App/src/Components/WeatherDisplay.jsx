@@ -96,8 +96,9 @@ const WeatherDisplay = ({ airQuality, weather }) => {
       <motion.div
         initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="w-full h-[340px] relative rounded-xl overflow-hidden"
+        transition={{ duration: 1 }}
+        style={{ animationDelay: "10s" }} // delay pulse for 2 seconds
+        className="w-full h-[340px] mt-20 animate-pulse relative rounded-xl overflow-hidden"
       >
         <img
           src={weatherImages[weather?.weather?.[0]?.main]}
@@ -108,21 +109,19 @@ const WeatherDisplay = ({ airQuality, weather }) => {
         <div className="absolute inset-0 bg-black/40"></div>
 
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-          <h1 className="text-slate-800 text-3xl font-semibold tracking-wide mb-8">
+          <h1 className="text-yellow-400 text-3xl font-semibold tracking-wide mb-8">
             {weather.customCity || weather.name}
           </h1>
 
-          <h1 className="text-red-400 mt-5 text-5xl drop-shadow-lg font-bold tracking-wide">
+          <h1 className="text-red-400 mt-5 text-5xl drop-shadow-lg font-bold tracking-wide animate-pulse">
             {Math.round(weather.main.temp)}°C
           </h1>
-
-          
 
           <p className="text-sky-300 text-2xl mt-2 capitalize font-medium">
             {weather.weather[0].description}
           </p>
 
-          <p className="text-pink-300 text-xl  mt-15">
+          <p className="text-pink-300 text-2xl  mt-15">
             Feels like {Math.round(weather.main.feels_like)}°C
           </p>
         </div>
@@ -130,7 +129,10 @@ const WeatherDisplay = ({ airQuality, weather }) => {
 
       {/* Heading */}
       <div className="bg-gradient-to-b from-black via-slate-900 to-black pt-12">
-        <h1 className="text-center text-4xl font-bold text-sky-400 tracking-wide mb-12">
+        <h1
+          style={{ animation: `ping 5s linear 1` }}
+          className="text-center text-4xl font-bold text-sky-400 tracking-wide mb-12"
+        >
           🌍 Weather Details
         </h1>
 
@@ -141,6 +143,7 @@ const WeatherDisplay = ({ airQuality, weather }) => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             whileHover={{ scale: 1.05 }}
+            style={{ animation: `spin 5s linear 1` }}
             className="bg-slate-800/60 backdrop-blur-md border border-blue-400 rounded-2xl p-6 text-white shadow-xl h-[320px]"
           >
             <h2 className="text-3xl font-semibold mb-4 text-blue-400">
@@ -167,6 +170,7 @@ const WeatherDisplay = ({ airQuality, weather }) => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             whileHover={{ scale: 1.05 }}
+            style={{ animation: `spin 5s linear 1` }}
             className="backdrop-blur-md border border-yellow-400 rounded-2xl p-6 text-white shadow-xl h-[320px]"
           >
             <h2 className="text-3xl font-semibold mb-4 text-yellow-400">
@@ -187,6 +191,7 @@ const WeatherDisplay = ({ airQuality, weather }) => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             whileHover={{ scale: 1.05 }}
+            style={{ animation: `spin 5s linear 1` }}
             className="backdrop-blur-md border border-red-400 rounded-2xl p-6 text-white shadow-xl h-[320px]"
           >
             <h2 className="text-3xl font-semibold mb-4 text-red-400">
@@ -223,6 +228,7 @@ const WeatherDisplay = ({ airQuality, weather }) => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             whileHover={{ scale: 1.05 }}
+            style={{ animation: `spin 5s linear 1` }}
             className="backdrop-blur-md border border-green-400 rounded-2xl p-6 text-white shadow-xl h-[320px]"
           >
             <h2 className="text-3xl font-semibold mb-4 text-green-400">

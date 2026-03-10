@@ -110,18 +110,18 @@ const SearchBar = ({ setWeather,setAirQuality, fetchWeatherByCoords, setLoading 
     <div className="flex flex-col items-center gap-4">
       {/* Radio Buttons */}
       <div className="flex gap-6 mb-4 text-white">
-        <label className="flex items-center gap-3 text-lg cursor-pointer text-slate-800">
+        <label className="flex text-yellow-600 animate-pulse font-semibold text-[1.5rem] items-center gap-3 text-lg cursor-pointer">
           <input
             type="radio"
             name="locationType"
             checked={!useCurrentLocation}
             onChange={() => setUseCurrentLocation(false)}
-            className="scale-150 accent-blue-500"
+            className="scale-150 accent-blue-500 "
           />
           Search by City
         </label>
 
-        <label className="flex items-center gap-3 text-lg cursor-pointer text-slate-800">
+        <label className="flex text-yellow-600 font-semibold text-[1.5rem] items-center gap-3 text-lg cursor-pointer animate-pulse">
           <input
             type="radio"
             name="locationType"
@@ -187,6 +187,7 @@ const SearchBar = ({ setWeather,setAirQuality, fetchWeatherByCoords, setLoading 
          hover:shadow-xl
          hover:bg-red-500
          cursor-pointer
+         animate-bounce
         "
       >
         Search

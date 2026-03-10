@@ -46,7 +46,10 @@ const WeeklyForecast = ({ data, getWeatherIcon, weatherBackgrounds }) => {
 
   return (
     <div className="bg-gradient-to-b from-black via-slate-900 to-black py-16">
-      <h1 className="text-center text-4xl font-bold text-sky-400 mb-12">
+      <h1
+        style={{ animation: `ping 5s linear 1` }}
+        className="text-center text-4xl font-bold text-sky-400 mb-12"
+      >
         📅 Next 5-Days Forecast
       </h1>
 
@@ -56,8 +59,8 @@ const WeeklyForecast = ({ data, getWeatherIcon, weatherBackgrounds }) => {
             const colorClass = getCardColor(index);
             const todayCard = isToday(item?.date);
             const condition = item.condition;
-             const bgImage =
-               weatherBackgrounds[condition] || weatherBackgrounds.Clear;
+            const bgImage =
+              weatherBackgrounds[condition] || weatherBackgrounds.Clear;
             return (
               <div
                 key={index}
@@ -65,9 +68,9 @@ const WeeklyForecast = ({ data, getWeatherIcon, weatherBackgrounds }) => {
                   backgroundImage: `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url(${bgImage})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
+                  animation: `spin 5s linear 1`,
                   animationDelay: `${index * 0.1}s`,
                 }}
-                
                 className={`flex flex-col items-center h-80 min-w-[220px]
 bg-slate-800/60 backdrop-blur-md
 border rounded-xl shadow-lg
@@ -106,7 +109,9 @@ ${todayCard ? "border border-yellow-400 shadow-yellow-400/50 shadow-xl" : ""}`}
                 </div>
 
                 {/* Condition */}
-                <div className="text-2xl text-gray-300 mt-2">{item.condition}</div>
+                <div className="text-2xl text-gray-300 mt-2">
+                  {item.condition}
+                </div>
 
                 {/* Rain Probability */}
                 <div className="text-blue-300 text-lg mt-3">

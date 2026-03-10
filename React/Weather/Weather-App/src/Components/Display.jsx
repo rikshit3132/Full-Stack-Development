@@ -31,23 +31,27 @@ const Display = ({ weather }) => {
   return (
     <>
       <div>
-        <h1 className="text-white text-center mb-5 text-4xl">
+        <h1
+          style={{ animation: `ping 5s linear 1` }}
+          className="text-blue-400 font-bold text-center mb-5 text-4xl "
+        >
           📍 Location & Time ⏰
         </h1>
       </div>
 
-      <div className="mt-10 flex justify-center">
+      <div className="mt-10 flex justify-center animate-pulse">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
           whileHover={{ scale: 1.05 }}
+         
           className="bg-slate-800/60 backdrop-blur-md 
                   border border-blue-700 
                   rounded-3xl p-12 
                   shadow-2xl w-[900px] text-center text-white"
         >
-          <h1 className="text-5xl font-bold mb-4 text-blue-300">
+          <h1 className="text-5xl font-bold mb-4 text-yellow-300">
             {weather.customCity || weather.name}
           </h1>
           <h3 className="text-2xl font-bold mb-4">Today</h3>

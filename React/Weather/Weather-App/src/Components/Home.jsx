@@ -60,15 +60,15 @@ const Home = () => {
           ⚠️ Govts. Guidelines about weather conditions... Incomplete!!
         </div>
 
-        <div className="text-center font-extrabold text-5xl text-slate-900  pt-12">
-          <span className="animate-bounce inline-block animate-bounce [animation-duration:2s]">
+        <div className="text-center animate-pulse font-extrabold text-5xl text-slate-900  pt-12">
+          <span className="animate-bounce inline-block [animation-duration:2s]">
             {" "}
             🌦️🌤️
           </span>{" "}
           Weather{" "}
           <span className="text-blue-400">
             Predictor{" "}
-            <span className="animate-bounce animate-bounce [animation-duration:2s] inline-block">
+            <span className="animate-bounce [animation-duration:2s] inline-block">
               🌧️☔︎
             </span>
             ︎

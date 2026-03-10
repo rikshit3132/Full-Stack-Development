@@ -65,7 +65,10 @@ const HourlyForcast = ({ data, weatherBackgrounds }) => {
 
   return (
     <div className="bg-gradient-to-b from-black via-slate-900 to-black py-16">
-      <h1 className="text-center text-4xl font-bold text-sky-400 mb-12">
+      <h1
+        style={{ animation: `ping 5s linear 1` }}
+        className="text-center text-4xl font-bold text-sky-400 mb-12"
+      >
         ⏰ Hourly Forecast
       </h1>
 
@@ -84,6 +87,7 @@ const HourlyForcast = ({ data, weatherBackgrounds }) => {
                   backgroundImage: `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url(${bgImage})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
+                  animation: `spin 5s linear 1`,
                   animationDelay: `${index * 0.1}s`,
                 }}
                 className={`flex flex-col items-center h-80 min-w-[220px]
@@ -91,6 +95,7 @@ bg-slate-800/60 backdrop-blur-md border
 p-5 rounded-2xl shadow-xl text-white
 hover:scale-105 hover:shadow-2xl
 transition-all duration-300
+
 ${colorClass}`}
               >
                 <div className="text-gray-300 text-xl mb-1">
