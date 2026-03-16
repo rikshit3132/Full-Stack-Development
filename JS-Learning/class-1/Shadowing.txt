@@ -1,0 +1,41 @@
+###### Shadowing
+
+Shadowing happens when a variable declared 
+inside an inner scope has the same name as 
+a variable in the outer scope, 
+so the inner variable “shadows” (hides) the 
+outer one.
+
+let a = 10;
+
+function test() {
+  let a = 20;   // shadows the outer 'a'
+  console.log(a);
+}
+
+test();
+
+### Illegal shadowing 
+Illegal shadowing happens when let or const 
+tries to shadow a var in the same scope, 
+which JavaScript does not allow.
+
+Example:
+let a = 10;
+{
+  var a = 20;   //  illegal shadowing
+}
+
+Error:-
+SyntaxError: Identifier 'a' has already been declared
+Because var is function scoped, it conflicts with let.
+
+### Legal Shadowing
+var a = 10;
+
+{
+  let a = 20;
+  console.log(a);//20
+}
+
+console.log(a);//10

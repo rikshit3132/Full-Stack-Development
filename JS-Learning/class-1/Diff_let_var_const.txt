@@ -1,0 +1,12 @@
+### Diff (let/const/var)
+
+
+| Feature                 | var      | let   | const |
+| ----------------------- | -------- | ----- | ----- |
+| Scope                   | Function | Block | Block |
+| Redeclaration           | Yes      | No    | No    |
+| Reassignment            | Yes      | Yes   | No    |
+| Hoisting                | Yes      | Yes   | Yes   |
+| TDZ                     | No       | Yes   | Yes   |
+| Initialization required | No       | No    | Yes   |
+| Global object property  | Yes      | No    | No    |

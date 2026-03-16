@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Type Head Search</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="autoComplete">
+        <h2>AutoComplete/TypeHead Search</h2>
+        <label for="search_input">Search for Country</label>
+        <input type="text" name="search_input" id="search_input" placeholder="Start Typing...">
+        <ul id = "suggestion_box" class="suggestion_box"></ul>
+        <p id = "no_results" class="no_results">No countries Found!!!</p>
+    </div>
+</body>
+<script src="./dataFetch.js" type="module"></script>
+<script src="./index.js" type="module"></script>
+</html>

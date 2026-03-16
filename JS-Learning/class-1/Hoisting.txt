@@ -1,0 +1,7 @@
+### Hoisting
+-> Variables and functions are moved to 
+-> the top of their scope during 
+-> compilation before code execution.
+
+-> But var, let, and const behave differently
+-> during hoisting.

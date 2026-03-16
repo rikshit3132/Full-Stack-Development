@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter App</title>
+
+</head>
+<style>
+    .container{
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 10rem;
+        margin-top: 5rem;
+        height: 20rem;
+        border: 2px solid black;
+    }
+</style>
+<body>
+    <div class="container">
+        <h1 class="heading">
+            Counter App
+        </h1>
+        <div id = "label_input">
+            <label for="values">Inc/Dec by: </label>
+            <input type="number" id = "values" class = "values" placeholder="0">
+        </div>
+        <div class="display">
+            <h2 id = "display_val"></h2>
+        </div>
+        <div class="buttons">
+            <button id = 'plus'>+</button>
+            <button id = 'minus'>-</button>
+            <button id = 'reset'>Reset</button>
+        </div>
+    </div>
+</body>
+<script>
+    const buttons = document.querySelector(".buttons");
+    const input = document.querySelector(".values");
+    const display = document.querySelector("#display_val");
+    let total = 0;
+    buttons.addEventListener("click",(e) =>{
+        const inputValue = input.value;
+        if(validateCheck(inputValue)){
+            alert("Value < 0 and empty input not alowed.");
+            return;
+        }
+        display.style.display = "block";
+        if(e.target.getAttribute("id") === "plus"){
+            total += parseInt(inputValue);
+            display.textContent = total;
+        }else if(e.target.getAttribute("id") === "minus"){
+            total -= parseInt(inputValue);
+            if(total < 0){
+                alert("Result in negative not allowed");
+                total = 0;
+                return;
+            }
+             display.textContent = total;
+        }else{
+            total = 0;
+            input.value = 0;
+            display.style.display = "none";
+        }
+    })
+    function validateCheck(inputValue){
+        if(inputValue === '' || parseInt(inputValue) < 0){
+            return true;
+        }
+    }
+</script>
+</html>

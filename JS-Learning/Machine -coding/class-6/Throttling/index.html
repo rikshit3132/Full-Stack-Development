@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Throttling</title>
+    <style>
+        div{
+            text-align: center;
+            font-size: 2rem;
+            height: 1000px;
+            width: 95%;
+            border: 2px solid black;
+            margin: 2rem;
+            border-radius: 12px;
+            background-color: azure;
+        }
+    </style>
+</head>
+<body>
+    <h1>Scroll Down</h1>
+    <div>Box</div>
+</body>
+<script>
+    function throtlle(fn,delay){
+        let lastcallTime = 0;
+        return function(... args){
+            const date = new Date().getTime();
+            if(date - lastcallTime < delay){
+                return;
+            }
+            lastcallTime = date;
+            fn(...args);
+        }
+    }
+    function handleScrollEvent(event){
+        console.log(new Date().toLocaleTimeString())
+    }
+    window.addEventListener("scroll",throtlle(handleScrollEvent,700));
+</script>
+</html>

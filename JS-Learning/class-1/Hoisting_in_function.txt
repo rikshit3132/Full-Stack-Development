@@ -1,0 +1,64 @@
+#### Hoisting in functions
+
+Hoisting means JavaScript moves declarations to 
+the top of their scope during the compilation phase, 
+before the code runs.
+
+For functions, hoisting behaves differently depending 
+on the type of function.
+
+1. Function Declaration (Fully Hoisted)
+
+Function declarations are completely hoisted, so you can call the function before it is defined.
+greet();
+
+function greet() {
+  console.log("Hello");
+}
+Output:-
+Hello
+
+-> JavaScript internally treats it like this:
+
+function greet() {
+  console.log("Hello");
+}
+greet();
+-> So the entire function definition is moved to the top.
+
+2. Function Expression (Not Fully Hoisted)
+If a function is assigned to a variable, 
+only the variable declaration is hoisted, 
+not the function.
+greet();
+var greet = function() {
+  console.log("Hello");
+}
+Output:-
+TypeError: greet is not a function
+-> Internally JavaScript sees this:
+
+var greet;   // hoisted
+greet();     // greet = undefined
+greet = function() {
+  console.log("Hello");
+}
+
+So calling it before assignment causes an error.
+
+3. Arrow Functions (Same as Function Expression)
+Arrow functions behave like function expressions.
+sayHi();
+const sayHi = () => {
+  console.log("Hi");
+};
+
+Output:-
+ReferenceError: Cannot access 'sayHi' before initialization
+Because const/let are in the Temporal Dead Zone (TDZ).
+
+Summary
+Function Type	            Hoisting Behavior	    Can Call Before Declaration
+Function Declaration	    Fully hoisted	              Yes
+Function Expression (var)	Only variable hoisted	      No
+Arrow Function (let/const)	Not hoisted (TDZ)	          No

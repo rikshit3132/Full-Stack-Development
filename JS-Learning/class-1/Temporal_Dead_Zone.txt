@@ -1,0 +1,55 @@
+#### Temporal Dead Zone
+
+-> The time between entering a scope and 
+-> the variable being initialized, during which 
+-> the variable cannot be accessed.
+This happens with let and const.
+
+Simple Explanation
+When JavaScript starts executing a block:
+Variables are hoisted (memory is created).
+But let and const are not initialized immediately.
+The period before initialization is called TDZ.
+If you try to access the variable in this period → ReferenceError.
+Example
+console.log(a);
+let a = 10;
+
+Output:
+ReferenceError: Cannot access 'a' before initialization
+
+Why?
+Because the variable a is inside TDZ until the line:
+let a = 10;
+
+### Visual Representation
+Block start
+   ↓
+TDZ starts
+   ↓
+console.log(a) ❌ (Error)
+   ↓
+let a = 10  ← initialization
+   ↓
+TDZ ends
+Example with Block
+{
+   console.log(x); // TDZ
+   let x = 5;
+}
+
+Error occurs because x is still in TDZ.
+
+With var
+console.log(a);
+var a = 10;
+
+Output:
+undefined
+Because var does NOT have TDZ.
+
+#### Quick Comparison
+Keyword	                 TDZ
+var	                     No
+let	                     Yes
+const	                 Yes

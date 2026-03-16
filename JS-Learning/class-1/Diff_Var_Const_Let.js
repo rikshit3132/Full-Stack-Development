@@ -1,6 +1,7 @@
 // var variable
 
-//    1) scope of var variable are global and functional scoped
+//    1) scope of var variable are global 
+// and functional scoped
 // var greeter = "hey hi";
 
 //     function newFunction() {
@@ -29,8 +30,8 @@
 // console.log(message);
 // var message = "Hie,Good morning";
 
-// let variables:-1) scope of let variable are 
-// block and functional scoped
+// let variables:-1) scope of let variable is only
+// block scoped
 
 // let fruit = "Mango";
 // console.log(fruit);

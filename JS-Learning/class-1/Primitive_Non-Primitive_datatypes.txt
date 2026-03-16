@@ -1,0 +1,97 @@
+#### Datatypes
+
+-> data types define the type of value 
+a variable can hold. JavaScript mainly 
+has 2 categories of data types.
+1) Primitive Data Types
+2) Non-Primitive Data Types
+
+### Primitive Datatypes
+These store single simple values.
+
+1) Number
+Represents both integers and floating-point numbers.
+
+let age = 25;
+let price = 99.99;
+
+2) String
+Represents text.
+
+let name = "Rikshit";
+let city = 'Delhi';
+
+3) Boolean
+Represents true or false.
+
+let isLoggedIn = true;
+let isAdmin = false;
+
+4) Undefined
+A variable declared but not assigned a value.
+
+let x;
+console.log(x); // undefined
+
+5) Null
+Represents intentional empty value.
+
+let data = null;
+
+6) BigInt
+Used for very large integers.
+
+let big = 12345678901234567890n;
+
+7) Symbol
+Used to create unique identifiers.
+
+let id = Symbol("id");
+
+### Non-Primitive Datatypes
+
+1) Objects
+let person = {
+  name: "Rikshit",
+  age: 27
+};
+2) Array (type of object)
+
+let fruits = ["apple", "banana", "mango"];
+
+3) Function
+
+function greet() {
+  console.log("Hello");
+}
+4) Map
+->Map stores key–value pairs where keys 
+-> can be any data type.
+
+let map = new Map();
+map.set("name", "Rikshit");
+console.log(map.get("name"));
+
+5) Set
+
+Set stores unique values (no duplicates allowed).
+
+let set = new Set([1,2,2,3]);
+console.log(set); // {1,2,3}
+
+6) WeakMap
+
+-> WeakMap stores key–value pairs where keys 
+-> must be objects and are weakly referenced.
+
+let wm = new WeakMap();
+let obj = {};
+wm.set(obj, "data");
+
+7) WeakSet
+
+WeakSet stores unique objects only with weak references.
+
+let ws = new WeakSet();
+let user = {};
+ws.add(user);

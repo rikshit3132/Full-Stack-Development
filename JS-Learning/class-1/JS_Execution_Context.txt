@@ -1,0 +1,78 @@
+// Execution Context 
+//  Execution Context means the environment 
+// in which JavaScript code is executed.
+
+Types of Execution Context
+1. Global Execution Context (GEC)
+-> Created first when JS program starts
+Only one global execution context
+Creates:
+Global Object (window in browser)
+this → window
+Example:
+var a = 10;
+function test(){
+    console.log("hello");
+}
+test();
+Here the global execution context stores:
+a
+test()
+
+2. Function Execution Context (FEC)
+Every time a function is called, a new execution context is created.
+Example:
+function greet(){
+    let msg = "Hello";
+    console.log(msg);
+}
+greet();
+When greet() runs:
+
+a new function execution context is created
+msg exists only inside that context.
+Execution Context Phases
+Each execution context has 2 phases.
+1. Memory Creation Phase (Creation Phase)
+JavaScript scans the code and allocates memory.
+Rules:
+var → undefined
+let / const → not initialized (temporal dead zone)
+function → full function stored
+Example:
+console.log(a);
+var a = 5;
+Output:
+undefined
+Because in memory phase:
+a → undefined
+
+2. Code Execution Phase
+Now the code runs line by line and assigns values.
+Example:
+var a = 5;
+console.log(a);
+Now a becomes 5.
+
+Execution Stack (Call Stack)
+JavaScript manages contexts using a stack.
+Example:
+function one(){
+    two();
+}
+function two(){
+    console.log("Hello");
+}
+one();
+
+Stack order:
+Global Execution Context 
+      ↓
+    one()
+      ↓
+    two()
+
+After execution:
+two() removed
+one() removed
+Global remains

@@ -54,3 +54,23 @@ chapter - 5 (DOM-5)
 -->> make a grid of 4*size*size
 -->> take 4 buttons left,right,up,down
 -->> move coin according to the button clicked
+
+3) 3 tier Architecture
+-->> 1 tier
+-->> 2 tier
+-->> 3 tier
+--> Hypertext protocol
+-->> rest api
+-->> websocket
+-->> crud operations:-get,put,post,patch,delete
+-->> request headers
+-->> GET accepted -->> accepted type
+-->> cookie -->> authetication related keys
+
+chapter - 6 (DOM-6)
+1) TypeHead Search
+-->> delay or debouncing
+-->> Lazy Loading
+-->> Throttling ->scroll -->> (rate limiting)
+ -->> metric event
+ 2) Example -2 scroll limit
