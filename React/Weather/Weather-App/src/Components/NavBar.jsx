@@ -2,7 +2,7 @@ import React from 'react'
 import {NavLink} from "react-router-dom";
 const NavBar = () => {
   return (
-    <div className="flex items-center justify-between px-6 py-4 bg-slate-900 text-white  backdrop-blur-sm shadow-md ">
+    <div className="flex items-center justify-between px-6 py-4 bg-gradient-to-b from-black via-slate-900 to-blue-950 text-white  backdrop-blur-sm shadow-md ">
       <div className="flex items-center gap-12">
         <NavLink to="/">
           <img
