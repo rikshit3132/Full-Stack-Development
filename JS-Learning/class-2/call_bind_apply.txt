@@ -1,0 +1,56 @@
+### Call,Bind,apply
+They are methods of functions used to 
+manually set this
+
+
+1. call()
+Calls the function immediately with a given this
+Syntax:
+fn.call(thisArg, arg1, arg2, ...)
+ Example:
+function greet(city) {
+  console.log(this.name + " from " + city);
+}
+const user = { name: "Rikshit" };
+greet.call(user, "Delhi");
+
+Output:
+Rikshit from Delhi
+
+2. apply()
+ Same as call, but arguments are passed as array
+ Syntax:
+fn.apply(thisArg, [argsArray])
+
+ Example:
+function greet(city) {
+  console.log(this.name + " from " + city);
+}
+const user = { name: "Rikshit" };
+greet.apply(user, ["Mumbai"]);
+
+Output:
+Rikshit from Mumbai
+
+3. bind()
+ Does NOT call immediately
+ Returns a new function with bound this
+
+ Syntax:
+const newFn = fn.bind(thisArg, arg1, arg2)
+ Example:
+function greet(city) {
+  console.log(this.name + " from " + city);
+}
+const user = { name: "Rikshit" };
+const boundFn = greet.bind(user, "Bangalore");
+boundFn();
+ Output:
+Rikshit from Bangalore
+
+### Key Differences
+
+Feature	      call()	        apply()	            bind()
+Execution	    Immediate	        Immediate	         Later
+Arguments	    Comma-separated	    Array	            Comma-separated
+Return      	Function result	  Function result	    New function
