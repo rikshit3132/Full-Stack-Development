@@ -3,90 +3,35 @@ import { Link } from 'react-router-dom'
 
 const WatchList = ({ watchlist, setWatchList }) => {
     console.log(watchlist);
-    const genreId = [
-        {
-          id: 28,
-          name: "Action",
-        },
-        {
-          id: 12,
-          name: "Abenteuer",
-        },
-        {
-          id: 16,
-          name: "Animation",
-        },
-        {
-          id: 35,
-          name: "Komödie",
-        },
-        {
-          id: 80,
-          name: "Krimi",
-        },
-        {
-          id: 99,
-          name: "Dokumentarfilm",
-        },
-        {
-          id: 18,
-          name: "Drama",
-        },
-        {
-          id: 10751,
-          name: "Familie",
-        },
-        {
-          id: 14,
-          name: "Fantasy",
-        },
-        {
-          id: 36,
-          name: "Historie",
-        },
-        {
-          id: 27,
-          name: "Horror",
-        },
-        {
-          id: 10402,
-          name: "Musik",
-        },
-        {
-          id: 9648,
-          name: "Mystery",
-        },
-        {
-          id: 10749,
-          name: "Liebesfilm",
-        },
-        {
-          id: 878,
-          name: "Science Fiction",
-        },
-        {
-          id: 10770,
-          name: "TV-Film",
-        },
-        {
-          id: 53,
-          name: "Thriller",
-        },
-        {
-          id: 10752,
-          name: "Kriegsfilm",
-        },
-        {
-          id: 37,
-          name: "Western",
-        },
-    ];
+   const genreIds = {
+     28: "Action",
+     12: "Adventure",
+     16: "Animation",
+     35: "Comedy",
+     80: "Crime",
+     99: "Documentary",
+     18: "Drama",
+     10751: "Family",
+     14: "Fantasy",
+     36: "History",
+     27: "Horror",
+     10402: "Music",
+     9648: "Mystery",
+     10749: "Romance",
+     878: "Sci-Fi",
+     10770: "TV",
+     53: "Thriller",
+     10752: "War",
+     37: "Western",
+   };
+
   return (
     <>
       <div className="text-4xl text-center font-bold m-5">
         <h1>WatchList</h1>
       </div>
       <div className="flex flex-wrap justify-evenly gap-8 text-center">
+    
         {watchlist.map((movie) => {
           return (
             <div

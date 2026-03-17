@@ -52,4 +52,4 @@ Because var does NOT have TDZ.
 Keyword	                 TDZ
 var	                     No
 let	                     Yes
-const	                 Yes
+const	                     Yes

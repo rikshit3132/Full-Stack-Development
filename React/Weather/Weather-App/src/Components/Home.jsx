@@ -5,6 +5,8 @@ import WeatherDisplay from "./WeatherDisplay";
 import WeeklyForcast from "./WeeklyForcast";
 import HourlyForcast from "./HourlyForcast";
 import ApiCall from "../Service/ApiCall";
+import GovtAlerts from "./GovtAlerts";
+
 
 const Home = () => {
   const [weather, setWeather] = useState(null);
@@ -55,11 +57,15 @@ const Home = () => {
   return (
     <div>
       {/* WHITE SECTION */}
-      <div className="min-h-screen pt-20 bg-gradient-to-b from-sky-100 to-sky-300 border-2 border-slate-300 rounded-2xl">
-        <div className="bg-red-600 text-white text-center py-3 font-semibold animate-pulse">
+      <div className="min-h-screen pt-0 bg-gradient-to-b from-sky-100 to-sky-300 border-2 border-slate-300 rounded-2xl">
+        {/* <div className="bg-red-600 text-white text-center py-3 font-semibold animate-pulse">
           ⚠️ Govts. Guidelines about weather conditions... Incomplete!!
+        </div> */}
+        <div>
+          {weather && (
+            <GovtAlerts lat={weather?.coord?.lat} lon={weather?.coord?.lon} />
+          )}
         </div>
-
         <div className="text-center animate-pulse font-extrabold text-5xl text-slate-900  pt-12">
           <span className="animate-bounce inline-block [animation-duration:2s]">
             {" "}

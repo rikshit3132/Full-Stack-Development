@@ -43,7 +43,7 @@ const Contact = () => {
       <div className="min-h-screen bg-slate-100 flex items-center justify-center p-6">
         <div className="max-w-3xl w-full bg-white rounded-2xl shadow-lg p-8">
           <h1 className="text-3xl font-bold text-blue-500 text-center mb-2">
-            Contact Us
+            Contact Me
           </h1>
 
           <p className="text-gray-600 text-center mb-8">

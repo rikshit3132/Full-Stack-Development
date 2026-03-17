@@ -1,46 +1,25 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
+const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY);
 
-const genAI = new GoogleGenerativeAI("AIzaSyBs3JbOTsZyb7iN5-bmvEFyC5vtHW6Afks");
-export const getGeminiModel = async()=>{
-    return genAI.getGenerativeModel({model : "gemini-1.5-pro"})
-}
-export const getMoviesRecommendations  = async(watchList) =>{
-   try {
-     const model = await getGeminiModel();
+export const getMoviesRecommendations = async (watchList) => {
+  try {
+    const model = genAI.getGenerativeModel({
+      model: "gemini-2.0-flash",
+    });
 
-     const prompt = `Based on these movies in the user's watchlist:
-${watchList.map((movie) => `- ${movie.title}`).join("\n")}
+    const prompt = `Recommend 5 movies similar to:
+${watchList.map((movie) => movie.title).join(", ")}`;
 
-Please recommend 5 similar movies.
-
-For each movie provide:
-- title
-- brief reason why it is recommended
-- confidence score (0-100)
-
-Return the result strictly in JSON format like this:
-
-{
-  "recommendations": [
-    {
-      "title": "Movie Name",
-      "reason": "Why this movie is recommended",
-      "confidence": 90
-    }
-  ]
-}
-`;
     const result = await model.generateContent(prompt);
-    console.log(
-      result.response
-        .text()
-        .replace(/```json```/g, "")
-        .trim(),
-    );
 
-    
-   } catch (error) {
-     console.log("Error in getMoviesRecommendations: ", error);
-   }
-}
+    const text = result.response.text();
+
+    return {
+      recommendations: text,
+    };
+  } catch (error) {
+    console.log("Error in getMoviesRecommendations:", error);
+    return { recommendations: [] };
+  }
+};

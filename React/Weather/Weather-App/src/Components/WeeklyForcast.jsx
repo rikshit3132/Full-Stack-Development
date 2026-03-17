@@ -46,12 +46,10 @@ const WeeklyForecast = ({ data, getWeatherIcon, weatherBackgrounds }) => {
 
   return (
     <div className="bg-gradient-to-b from-black via-slate-900 to-black py-16">
-      <h1
-        style={{ animation: `ping 5s linear 1` }}
-        className="text-center text-4xl font-bold text-sky-400 mb-12"
-      >
+      <h2  style={{ animation: `ping 5s linear 1` }}
+        className= "text-center text-4xl font-bold text-sky-400 mb-12">
         📅 Next 5-Days Forecast
-      </h1>
+      </h2>
 
       <div className="flex justify-center">
         <div className="flex flex-wrap gap-6 justify-center px-5">
@@ -109,7 +107,7 @@ ${todayCard ? "border border-yellow-400 shadow-yellow-400/50 shadow-xl" : ""}`}
                 </div>
 
                 {/* Condition */}
-                <div className="text-2xl text-gray-300 mt-2">
+                <div className={`text-2xl ${colorClass}text-gray-300 mt-2`}>
                   {item.condition}
                 </div>
 
