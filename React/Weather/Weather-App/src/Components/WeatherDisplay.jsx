@@ -1,18 +1,18 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-import clear from "../assets/Weather-Images/clear.jpg";
-import rain from "../assets/Weather-Images/rainy.jpg";
-import snow from "../assets/Weather-Images/snowy.jpg";
-import cloud from "../assets/Weather-Images/cloudy.jpg";
-import thunder from "../assets/Weather-Images/thunder.jpg";
-import drizzle from "../assets/Weather-Images/drizzle.jpg";
-import mist from "../assets/Weather-Images/mist.jpg";
-import dust from "../assets/Weather-Images/dust.jpg";
-import sand from "../assets/Weather-Images/sand.jpg";
-import haze from "../assets/Weather-Images/haze.jpg";
-import smoke from "../assets/Weather-Images/smoke.jpg";
-import fog from "../assets/Weather-Images/fog.jpg";
+import clear from "../assets/Weather-Images/clear.webp";
+import rain from "../assets/Weather-Images/rainy.webp";
+import snow from "../assets/Weather-Images/snowy.webp";
+import cloud from "../assets/Weather-Images/cloudy.webp";
+import thunder from "../assets/Weather-Images/thunder.webp";
+import drizzle from "../assets/Weather-Images/drizzle.webp";
+import mist from "../assets/Weather-Images/mist.webp";
+import dust from "../assets/Weather-Images/dust.webp";
+import sand from "../assets/Weather-Images/sand.webp";
+import haze from "../assets/Weather-Images/haze.webp";
+import smoke from "../assets/Weather-Images/smoke.webp";
+import fog from "../assets/Weather-Images/fog.webp";
 
 const WeatherDisplay = ({ airQuality, weather }) => {
   if (!weather) return null;

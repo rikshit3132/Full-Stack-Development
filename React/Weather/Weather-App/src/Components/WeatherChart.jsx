@@ -55,9 +55,9 @@ const WeatherChart = ({ data }) => {
 
   return (
     <div className="w-full">
-      <div className="bg-slate-900 p-6  border border-slate-800 shadow-xl">
+      <div className="bg-slate-900 pb-20  border border-slate-800 shadow-xl">
         {/* 🔥 Toggle Buttons */}
-        <div className="flex justify-center gap-2 mb-4">
+        <div className="flex justify-center gap-2 mb-4 pt-15">
           <button
             onClick={() => setMode("hourly")}
             className={`px-4 py-2 cursor-pointer font-semibold rounded-lg text-sm ${

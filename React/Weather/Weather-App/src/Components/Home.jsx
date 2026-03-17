@@ -57,7 +57,7 @@ const Home = () => {
   return (
     <div>
       {/* WHITE SECTION */}
-      <div className="min-h-screen pt-0 bg-gradient-to-b from-sky-100 to-sky-300 border-2 border-slate-300 rounded-2xl">
+      <div className="min-h-screen bg-gradient-to-b from-sky-100 to-sky-300 border-2 border-slate-800">
         {/* <div className="bg-red-600 text-white text-center py-3 font-semibold animate-pulse">
           ⚠️ Govts. Guidelines about weather conditions... Incomplete!!
         </div> */}

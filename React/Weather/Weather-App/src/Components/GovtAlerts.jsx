@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import newsFeed from "../assets/Weather-Images/newspaper.png"
+import newsFeed from "../assets/Weather-Images/newspaper.webp"
 const GovtAlerts = ({ lat, lon }) => {
   const [alerts, setAlerts] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);

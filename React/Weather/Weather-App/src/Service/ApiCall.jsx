@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import rainImg from "../assets/Weather-Images/rainy.jpg";
-import clearImg from "../assets/Weather-Images/clear.jpg";
-import cloudImg from "../assets/Weather-Images/cloudy.jpg";
-import snowImg from "../assets/Weather-Images/snowy.jpg";
-import thunderImg from "../assets/Weather-Images/thunder.jpg";
-import mistImg from "../assets/Weather-Images/mist.jpg";
-import fogImg from "../assets/Weather-Images/fog.jpg";
-import drizzleImg from "../assets/Weather-Images/drizzle.jpg"
+import rainImg from "../assets/Weather-Images/rainy.webp";
+import clearImg from "../assets/Weather-Images/clear.webp";
+import cloudImg from "../assets/Weather-Images/cloudy.webp";
+import snowImg from "../assets/Weather-Images/snowy.webp";
+import thunderImg from "../assets/Weather-Images/thunder.webp";
+import mistImg from "../assets/Weather-Images/mist.webp";
+import fogImg from "../assets/Weather-Images/fog.webp";
+import drizzleImg from "../assets/Weather-Images/drizzle.webp";
 
 import WeatherChart from "../Components/WeatherChart";
 import ForecastToggle from "../Components/ForcastToggle";
