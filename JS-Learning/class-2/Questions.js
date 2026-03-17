@@ -52,7 +52,7 @@
 //     x : 50
 // }
 // const getAns = obj.getX.bind(newObj);
-// // console.log(getAns(50))
+// console.log(getAns(50))
 // getAns();
 
 // Borrow method using call

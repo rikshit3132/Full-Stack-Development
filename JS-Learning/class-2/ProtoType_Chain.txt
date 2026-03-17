@@ -1,0 +1,43 @@
+What is Prototype Chain?
+Prototype Chain = a chain of objects linked via [[Prototype]]
+
+When you try to access a property:
+JS checks the object itself
+If not found → goes to its prototype
+Then prototype’s prototype
+Continues until null
+
+Visual Understanding
+const obj = {};
+Prototype chain:
+obj → Object.prototype → null
+
+
+How It Works Internally
+const user = {
+  name: "Rikshit"
+};
+console.log(user.toString());
+toString() is NOT in user
+JS looks:
+user ❌
+user.proto (Object.prototype) ✅
+
+### Full Example
+const grandParent = {
+  greet() {
+    console.log("Hello");
+  }
+};
+
+const parent = Object.create(grandParent);
+parent.sayHi = function () {
+  console.log("Hi");
+};
+const child = Object.create(parent);
+child.greet(); // Hello
+child.sayHi(); // Hi
+
+child → parent → grandParent → Object.prototype → null
+
+

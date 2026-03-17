@@ -92,7 +92,7 @@
 // GEC  -------->>>window
 // Method call(Obj call)----->>>object
 // function call ----->>window
-// Arrow function ------->>>>parent this or   outer scope this
+// Arrow function ------->>>>parent this or outer scope this
 
 // this on Strict Mode
 

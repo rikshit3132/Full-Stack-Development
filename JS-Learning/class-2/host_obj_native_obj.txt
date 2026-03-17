@@ -1,0 +1,47 @@
+#####Native Objects
+These are objects defined by the JavaScript 
+language itself (ECMAScript specification).
+They are always available in any JavaScript 
+environment (browser, Node.js, etc.).
+
+✅ Examples:
+Object
+Array
+String
+Number
+Boolean
+Math
+Date
+RegExp
+Function
+
+💡 Example:
+let arr = [1, 2, 3];   // Array (native)
+let date = new Date(); // Date (native)
+
+👉 These objects are part of the core language.
+
+🔹 Host Objects
+These are objects provided by the environment 
+where JavaScript runs (like browser or Node.js).
+👉 They are not part of ECMAScript, 
+but added by the host.
+
+🌐 In Browsers:
+window
+document
+console
+fetch
+setTimeout
+ Example:
+console.log("Hello");        // console (host)
+document.getElementById("id"); // document (host)
+setTimeout(() => {}, 1000);  // host
+ In Node.js:
+fs
+http
+process
+
+Easy Way to Remember
+Native = Built into JavaScript itself
+Host = Provided by where JS is running
