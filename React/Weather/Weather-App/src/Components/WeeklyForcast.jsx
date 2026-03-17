@@ -45,14 +45,16 @@ const WeeklyForecast = ({ data, getWeatherIcon, weatherBackgrounds }) => {
   };
 
   return (
-    <div className="bg-gradient-to-b from-black via-slate-900 to-black py-16">
-      <h2  style={{ animation: `ping 5s linear 1` }}
-        className= "text-center text-4xl font-bold text-sky-400 mb-12">
+    <div className="bg-gradient-to-b from-black via-slate-900 to-blue-950 pt-8 pb-20">
+      <h2
+        style={{ animation: `ping 5s linear 1` }}
+        className="text-center text-2xl font-bold text-slate-200 pb-10"
+      >
         📅 Next 5-Days Forecast
       </h2>
 
       <div className="flex justify-center">
-        <div className="flex flex-wrap gap-6 justify-center px-5">
+        <div className="flex cursor-pointer flex-wrap gap-6 justify-center px-5">
           {dailyData.slice(0, 5).map((item, index) => {
             const colorClass = getCardColor(index);
             const todayCard = isToday(item?.date);

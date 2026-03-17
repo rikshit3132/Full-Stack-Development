@@ -64,14 +64,16 @@ const HourlyForcast = ({ data, weatherBackgrounds }) => {
   };
 
   return (
-    <div className="bg-gradient-to-b from-black via-slate-900 to-black py-16">
-      <h2  style={{ animation: `ping 5s linear 1` }}
-        className= "text-center text-4xl font-bold text-sky-400 mb-12">
-        ⏰ Hourly Forecast
+    <div className="bg-gradient-to-b from-black via-slate-900 to-blue-950 pt-8 pb-20">
+      <h2
+        style={{ animation: `ping 5s linear 1` }}
+        className="text-center text-2xl font-bold text-slate-200 pb-10"
+      >
+        ⏰ 3 Hourly Forecast
       </h2>
 
       <div className="flex justify-center">
-        <div className="flex gap-6 flex-wrap px-5 justify-center">
+        <div className="flex cursor-pointer gap-6 flex-wrap px-5 justify-center">
           {sortedHourlyData.slice(0, 8).map((item, index) => {
             const condition = item.weather?.[0]?.main;
             const period = getTimePeriod(item.dt);

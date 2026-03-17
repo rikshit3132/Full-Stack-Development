@@ -7,11 +7,14 @@ const Display = ({ weather }) => {
   useEffect(() => {
     if (!weather) return;
 
-    const utc = new Date().getTime() + new Date().getTimezoneOffset() * 60000;
+    const interval = setInterval(() => {
+      const utc = new Date().getTime() + new Date().getTimezoneOffset() * 60000;
 
-    const localTime = new Date(utc + weather.timezone * 1000);
+      const localTime = new Date(utc + weather.timezone * 1000);
+      setCityTime(localTime);
+    }, 1000);
 
-    setCityTime(localTime);
+    return () => clearInterval(interval);
   }, [weather]);
   const currentDate = cityTime.toLocaleDateString("en-IN", {
     weekday: "long",
@@ -33,26 +36,25 @@ const Display = ({ weather }) => {
       <div>
         <h1
           style={{ animation: `ping 5s linear 1` }}
-          className="text-blue-400 font-bold text-center mb-5 text-4xl "
+          className="text-slate-200 font-bold text-center pt-10 text-2xl "
         >
           📍 Location & Time ⏰
         </h1>
       </div>
 
-      <div className="mt-10 flex justify-center animate-pulse">
+      <div className="flex justify-center animate-pulse pt-10">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
           whileHover={{ scale: 1.05 }}
-         
-          className="bg-slate-800/60 backdrop-blur-md 
+          className="bg-gradient-to-b from-black via-slate-900 to-blue-950 
                   border border-blue-700 
                   rounded-3xl p-12 
                   shadow-2xl w-[900px] text-center text-white"
         >
           <h1 className="text-5xl font-bold mb-4 text-yellow-300">
-            {weather.customCity || weather.name}
+            {weather?.customCity || weather?.name || "Unknown Location"}
           </h1>
           <h3 className="text-2xl font-bold mb-4">Today</h3>
 

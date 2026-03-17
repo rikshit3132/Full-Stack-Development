@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import HourlyForcast from "../Components/HourlyForcast";
-import WeeklyForecast from "../Components/WeeklyForcast";
-import HourlyWeatherChart from "../Components/HourlyWeatherChart"
-
-
 import rainImg from "../assets/Weather-Images/rainy.jpg";
 import clearImg from "../assets/Weather-Images/clear.jpg";
 import cloudImg from "../assets/Weather-Images/cloudy.jpg";
@@ -13,7 +8,9 @@ import thunderImg from "../assets/Weather-Images/thunder.jpg";
 import mistImg from "../assets/Weather-Images/mist.jpg";
 import fogImg from "../assets/Weather-Images/fog.jpg";
 import drizzleImg from "../assets/Weather-Images/drizzle.jpg"
-import WeeklyWeatherChart from "../Components/WeeklyWeatherChart";
+
+import WeatherChart from "../Components/WeatherChart";
+import ForecastToggle from "../Components/ForcastToggle";
 const ApiCall = ({ lat, lon }) => {
   const [data, setData] = useState(null);
   const [loader, setLoader] = useState(false);
@@ -83,22 +80,14 @@ const ApiCall = ({ lat, lon }) => {
         </div>
       ) : (
         <div>
-          {data && <HourlyWeatherChart data={data} />}
           {data && (
-            <HourlyForcast
-              data={data}
-              weatherBackgrounds={weatherBackgrounds}
-            />
-          )}
-          {data && <WeeklyWeatherChart data ={data}/>}
-
-          {data && (
-            <WeeklyForecast
+            <ForecastToggle
               data={data}
               weatherBackgrounds={weatherBackgrounds}
               getWeatherIcon={getWeatherIcon}
             />
           )}
+          {data && <WeatherChart data={data} />}
         </div>
       )}
     </>

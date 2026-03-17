@@ -98,11 +98,11 @@ const Home = () => {
         </div>
       ) : (
         <>
-          <div className="bg-black py-10 ">
+          <div className="bg-gradient-to-b from-black via-slate-900 to-blue-950 pb-30">
             {weather && <Display weather={weather} />}
           </div>
 
-          <div className="bg-black py-10 ">
+          <div className="bg-gradient-to-b from-black via-slate-900 to-blue-950">
             {weather && (
               <WeatherDisplay airQuality={airQuality} weather={weather} />
             )}

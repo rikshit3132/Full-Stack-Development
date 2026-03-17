@@ -98,7 +98,7 @@ const WeatherDisplay = ({ airQuality, weather }) => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
         style={{ animationDelay: "10s" }} // delay pulse for 2 seconds
-        className="w-full h-[340px] mt-20 animate-pulse relative rounded-xl overflow-hidden"
+        className="w-full h-[340px]  animate-pulse relative rounded-xl overflow-hidden"
       >
         <img
           src={weatherImages[weather?.weather?.[0]?.main]}
@@ -128,10 +128,10 @@ const WeatherDisplay = ({ airQuality, weather }) => {
       </motion.div>
 
       {/* Heading */}
-      <div className="bg-gradient-to-b from-black via-slate-900 to-black pt-12">
+      <div className="bg-gradient-to-b from-black via-slate-900 to-blue-950 pt-12 pb-12">
         <h1
           style={{ animation: `ping 5s linear 1` }}
-          className="text-center text-4xl font-bold text-sky-400 tracking-wide mb-12"
+          className="text-center text-2xl font-bold text-slate-200 tracking-wide mb-12"
         >
           🌍 Weather Details
         </h1>
