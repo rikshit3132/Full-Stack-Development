@@ -2,6 +2,15 @@
 // JS Array is dynamic
 
 // 1) Map
+
+// It will take current array for consideration,
+// and returns always an new array changed,after operation.
+// The operation depends upon callback function.
+
+// It creates a new array by applying a 
+// function to every 
+// element of the original array.
+
 // Map takes 3 things internally in callback,
 // 1. currentValue --- this[i]
 // 2. currentIdx --- i
