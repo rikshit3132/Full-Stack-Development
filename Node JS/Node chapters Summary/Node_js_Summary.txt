@@ -1,0 +1,22 @@
+// Chapter-1 
+
+what is node js? opensource?
+server side js runtime env. ?
+why to use node js?
+event driven?
+non-blocking I/O model ?
+scalabale and high performance network application?
+file system in node js?
+reading,writing,append,rename,unlink async file (CRUD)
+looking stat of file using stat func.
+creating directries/recursive directries
+creating directory (mkdir)
+removing directory (rmdir)
+checking whether directory exist or not sync way (existSync)
+checking whether directory exist or not async way (access)
+how to write data of source file to destination file 
+streams read and write for continuos flow of data
+what is server? how much ports in computer?
+creating server using plain node.js
+nodemon for live changes...imp..
+what is an api?
