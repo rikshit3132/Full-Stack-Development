@@ -1,6 +1,6 @@
 ===== What is React Router?====
--->> React Router is a library that allows 
-navigation between components without reloading 
+-->> React Router is a library that allows
+navigation between components without reloading
 the page.
 
 -->> In normal websites:
@@ -9,7 +9,6 @@ In React:
 -->> We want Single Page Application (SPA)
 -->> Only the component changes
 -->> Page does NOT reload
-
 
 =======What is <BrowserRouter>?===
 
@@ -26,30 +25,31 @@ Example:
 
 import { BrowserRouter } from "react-router-dom";
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
+<BrowserRouter>
+<App />
+</BrowserRouter>
 );
 
- -->> Wrap your entire app with it
- -->> You use it ONLY ONCE
+-->> Wrap your entire app with it
+-->> You use it ONLY ONCE
 
 ========What is <Routes> and <Route>?========
-1) <Routes>
--->> It is a container.
--->> It looks at current URL and checks which 
-->> Route matches.
 
-2) <Route>
+1. <Routes>
+   -->> It is a container.
+   -->> It looks at current URL and checks which 
+   ->> Route matches.
+
+2. <Route>
 
 It defines:
 -->> path
 -->> which component to show
 Example:
 <Routes>
-  <Route path="/" element={<Home />} />
-  <Route path="/about" element={<About />} />
-  <Route path="/contact" element={<Contact />} />
+<Route path="/" element={<Home />} />
+<Route path="/about" element={<About />} />
+<Route path="/contact" element={<Contact />} />
 </Routes>
 
 ======== What is <Link>? ======
@@ -60,9 +60,9 @@ Example:
 <a href="/about">About</a>
 
 -->> Correct way:
+
 <Link to="/about">About</Link>
 -->> It changes URL without refreshing page.
-
 
 Full Flow (Very Important)
 Let’s say you open:
@@ -81,7 +81,6 @@ Step 5:
 It renders:
 <About />
 Navbar stays because it is outside Routes.
-
 
 WHY Navbar Outside Routes?
 
