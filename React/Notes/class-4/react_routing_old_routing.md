@@ -1,0 +1,116 @@
+Let’s understand Client–Server Architecture in both cases:
+1. Traditional Server-Side Routing
+2. React (Client-Side Routing / SPA)
+
+### Traditional Server-Side Architecture
+Example: Wikipedia
+-> How It Works (Step-by-Step)
+Step 1:-
+User types:
+-> example.com/about
+Step 2:-
+-> Browser sends HTTP request to server.
+Step 3:-
+Server:
+-> Processes request
+-> Talks to database
+-> Generates full HTML page
+
+Step 4:-
+-> Server sends complete HTML document.
+Step 5:-
+Browser:
+-> Destroys old page
+-> Loads new HTML
+-> Re-renders everything
+
+### What Happens on Every Navigation?
+
+Every click:
+-> New request
+-> New HTML
+-> Full page reload
+-> JS restarts
+-> State resets
+
+ Architecture Flow
+Browser  →  Server  →  Database
+   ↑           ↓
+ Full HTML  Response
+ Advantages :-
+-> Good for SEO (search engines love full HTML)
+-> Simpler logic
+-> Works without JavaScript
+
+Disadvantages:-
+-> Slower
+-> Full reload every time
+-> State lost on navigation
+
+ React SPA (Client-Side Routing)
+Example: Facebook
+ How It Works (Step-by-Step)
+First Load Only:
+Browser requests website
+Server sends:
+One HTML file
+JS bundle
+CSS
+React loads in browser
+After that 
+When You Navigate
+If you go to:
+/profile
+Browser DOES NOT request new HTML.
+Instead:
+React Router detects URL change
+React swaps components
+UI updates instantly
+
+ Architecture Flow
+Initial:
+Browser → Server → index.html + JS
+
+After Load:
+Browser (React handles everything)
+
+API Calls:
+Browser → Server → JSON data
+ Important Difference
+
+In SPA:
+
+Server sends DATA (JSON)
+Client builds UI
+
+In Traditional:
+
+Server sends FULL UI (HTML)
+
+ Real Comparison
+Feature	Server-Side	React SPA
+HTML generated	Server	Client
+Navigation	Full reload	No reload
+State preserved	
+Data transfer	HTML pages	JSON data
+Speed after first load	Slow	Very fast
+ What Actually Changes?
+Traditional:
+
+Server controls everything.
+
+React SPA:
+
+Server becomes mostly an API provider.
+
+ Big Picture
+
+Traditional Architecture:
+
+Server = Brain
+Browser = Viewer
+
+React SPA:
+
+Browser = Brain
+Server = Data Provider
