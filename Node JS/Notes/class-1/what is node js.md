@@ -7,3 +7,8 @@
 ## After Node.js
 - You can use JavaScript for both frontend + backend
 - This made full-stack development much easier
+  
+## How Node.js Works?
+Node.js is built on:
+- Google Chrome V8 engine → executes JavaScript very fast
+- Uses non-blocking, event-driven architecture
