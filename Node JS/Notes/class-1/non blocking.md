@@ -63,7 +63,7 @@ readFile('file.txt', callback);
 console.log("Next");
 ```
 
- Output:
+Output:
 Next
 (wait...)
 callback runs
