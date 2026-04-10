@@ -12,11 +12,10 @@
 Node.js is built on:
 - Google Chrome V8 engine → executes JavaScript very fast
 - Uses non-blocking, event-driven architecture
-Meaning:
-- It can handle many users at the same time
+- Meaning:- It can handle many users at the same time
 - Doesn’t wait for one task to finish before starting another
-Example:-
-- While reading a file → it can handle another request
+
+- Example:- While reading a file → it can handle another request
 
 ## Why is Node.js Open Source?
 Node.js is open source because:
