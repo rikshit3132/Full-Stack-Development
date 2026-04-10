@@ -18,8 +18,8 @@ console.log("Next line executed");
 
 ```
  Output:
-Next line executed
-File read done
+- Next line executed
+- File read done
 
 # Why this happens?
 Because:
